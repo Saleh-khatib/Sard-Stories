@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "connection": {
+    "project": "",
+    "location": "global"
+  },
+  "models": {
+    "sceneEdit": "gemini-3-pro-image",
+    "characterSheet": "gemini-3-pro-image",
+    "visionJudge": "gemini-2.5-flash",
+    "featureCard": "gemini-2.5-flash",
+    "compare": [
+      "gemini-3-pro-image",
+      "gemini-3.1-flash-image"
+    ],
+    "prices": {
+      "gemini-3-pro-image": {
+        "inputPerM": 2,
+        "outputImagePerM": 120,
+        "outputTextPerM": 12
+      },
+      "gemini-3.1-flash-image": {
+        "inputPerM": 0.5,
+        "outputImagePerM": 60,
+        "outputTextPerM": 3
+      },
+      "gemini-2.5-flash-image": {
+        "inputPerM": 0.3,
+        "outputImagePerM": 30,
+        "outputTextPerM": 2.5
+      },
+      "gemini-2.5-flash": {
+        "inputPerM": 0.3,
+        "outputImagePerM": 0,
+        "outputTextPerM": 2.5
+      }
+    }
+  },
+  "generation": {
+    "temperature": 0.2,
+    "topP": 0.95,
+    "seed": null,
+    "candidates": 3,
+    "concurrency": 4,
+    "sizeRule": {
+      "maxLongSideFor1K": 1024,
+      "maxLongSideFor2K": 2048
+    },
+    "forceSize": "off",
+    "sheetSize": "1K",
+    "sheetAspectRatio": "3:2",
+    "maxAspectErrorPct": 3,
+    "maxInlineBytes": 7000000,
+    "retry": {
+      "maxTries": 3,
+      "baseDelayMs": 2000
+    }
+  },
+  "masking": {
+    "cropPaddingPct": 15,
+    "featherPx": 8,
+    "seamColorMatch": true,
+    "seamBandPx": 12,
+    "maskThreshold": 128,
+    "sharpnessRingPx": 64,
+    "qaMaxSidePx": 1024
+  },
+  "qa": {
+    "edgeSsimMin": 0.3,
+    "seamDeltaMax": 25,
+    "sharpnessRatioMin": 0.5,
+    "visionScoreMin": 7,
+    "maxAutoRetries": 2
+  },
+  "prompts": {
+    "characterSheet": "Create a character sheet of the child in the photo, drawn in the same art style as the reference illustrations ({style_notes}). Show the head and upper body from the front, in profile and from behind. Keep the child's real hair colour ({hair_color}), hair style ({hair_style}), skin tone ({skin_tone}) and eye colour ({eyes}). Notable features: {features}. Plain light background, no text.",
+    "sceneEditFront": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child ({name}, {gender}). Replace the hero's head and neck inside the red outline with the child from the sheet, seen from the FRONT, in exactly the same art style, line weight, shading and lighting. Hair: {hair_color}, {hair_style}. Skin: {skin_tone}. Eyes: {eyes}. Do not change anything outside the red outline. Do not draw the red outline. Do not add extra faces or text.",
+    "sceneEditSide": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child ({name}, {gender}). Replace the hero's head and neck inside the red outline with the child from the sheet, seen in PROFILE facing the same direction as the original, in exactly the same art style, line weight, shading and lighting. Hair: {hair_color}, {hair_style}. Skin: {skin_tone}. Do not change anything outside the red outline. Do not draw the red outline. Do not add extra faces or text.",
+    "sceneEditBack": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child ({name}, {gender}). Replace the hero's head and neck inside the red outline with the back of the child's head from the sheet, seen from BEHIND, in exactly the same art style, line weight, shading and lighting. Hair: {hair_color}, {hair_style}. Skin tone of the neck: {skin_tone}. No face may be visible. Do not change anything outside the red outline. Do not draw the red outline. Do not add extra faces or text.",
+    "featureCard": "Look at this photo of a child and describe only visible physical features as JSON: hairColor, hairStyle, skinTone, eyes, notableFeatures (array of short strings, e.g. glasses, freckles, dimples). Be concise and factual.",
+    "judge": "You are a strict art-director checking a personalised children's book illustration. Image 1 is the character sheet of the child. Image 2 is the ORIGINAL crop. Image 3 is the EDITED crop. Feature card: {feature_card}. View: {view}. Score from 1 to 10: likeness (does the head in image 3 look like the child on the sheet), featureMatch (hair colour/style, skin tone, eyes match the card), styleMatch (same art style, line weight, shading as image 2). Report artifacts (visible seams, smudges, wrong anatomy, leftover original face) and extraFaces. overall is 1-10 overall quality. pass is true only if it is usable in print. reason is one short sentence.",
+    "styleNotes": "soft children's picture-book illustration, clean outlines, warm colours"
+  }
+}
