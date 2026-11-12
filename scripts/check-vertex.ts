@@ -48,7 +48,6 @@ function errorStatus(e: unknown): string {
 async function main() {
   const project = requireEnv("GOOGLE_CLOUD_PROJECT");
   const location = process.env.GOOGLE_CLOUD_LOCATION || "global";
-  requireEnv("GOOGLE_APPLICATION_CREDENTIALS");
 
   const ai = new GoogleGenAI({ vertexai: true, project, location });
   const data = await testImage();
