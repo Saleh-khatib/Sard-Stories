@@ -1,0 +1,11 @@
+# --- Sard Story Books ---
+.env
+.env.*
+!.env.example
+secrets/
+test-data/**
+!test-data/README.md
+out/
+storage/
+*.sqlite
+*.sqlite-journal
