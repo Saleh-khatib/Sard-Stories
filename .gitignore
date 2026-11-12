@@ -9,3 +9,4 @@ out/
 storage/
 *.sqlite
 *.sqlite-journal
+node_modules/
