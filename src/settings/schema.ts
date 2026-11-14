@@ -19,8 +19,8 @@ export const ConnectionSchema = z.object({
 export const ModelsSchema = z.object({
   sceneEdit: z.string().default("gemini-3-pro-image"),
   characterSheet: z.string().default("gemini-3-pro-image"),
-  visionJudge: z.string().default("gemini-2.5-flash"),
-  featureCard: z.string().default("gemini-2.5-flash"),
+  visionJudge: z.string().default("gemini-3-flash-preview"),
+  featureCard: z.string().default("gemini-3-flash-preview"),
   compare: z.array(z.string()).default(["gemini-3-pro-image", "gemini-3.1-flash-image"]),
   prices: z
     .record(z.string(), PriceSchema)
@@ -28,7 +28,9 @@ export const ModelsSchema = z.object({
       "gemini-3-pro-image": { inputPerM: 2, outputImagePerM: 120, outputTextPerM: 12 },
       "gemini-3.1-flash-image": { inputPerM: 0.5, outputImagePerM: 60, outputTextPerM: 3 },
       "gemini-2.5-flash-image": { inputPerM: 0.3, outputImagePerM: 30, outputTextPerM: 2.5 },
-      "gemini-2.5-flash": { inputPerM: 0.3, outputImagePerM: 0, outputTextPerM: 2.5 },
+      "gemini-3-flash-preview": { inputPerM: 0.5, outputImagePerM: 0, outputTextPerM: 3 },
+      "gemini-3.1-flash-lite": { inputPerM: 0.25, outputImagePerM: 0, outputTextPerM: 1.5 },
+      "gemini-3.1-pro-preview": { inputPerM: 2, outputImagePerM: 0, outputTextPerM: 12 },
     }),
 });
 

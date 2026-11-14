@@ -7,8 +7,8 @@
   "models": {
     "sceneEdit": "gemini-3-pro-image",
     "characterSheet": "gemini-3-pro-image",
-    "visionJudge": "gemini-2.5-flash",
-    "featureCard": "gemini-2.5-flash",
+    "visionJudge": "gemini-3-flash-preview",
+    "featureCard": "gemini-3-flash-preview",
     "compare": [
       "gemini-3-pro-image",
       "gemini-3.1-flash-image"
@@ -29,10 +29,20 @@
         "outputImagePerM": 30,
         "outputTextPerM": 2.5
       },
-      "gemini-2.5-flash": {
-        "inputPerM": 0.3,
+      "gemini-3-flash-preview": {
+        "inputPerM": 0.5,
         "outputImagePerM": 0,
-        "outputTextPerM": 2.5
+        "outputTextPerM": 3
+      },
+      "gemini-3.1-flash-lite": {
+        "inputPerM": 0.25,
+        "outputImagePerM": 0,
+        "outputTextPerM": 1.5
+      },
+      "gemini-3.1-pro-preview": {
+        "inputPerM": 2,
+        "outputImagePerM": 0,
+        "outputTextPerM": 12
       }
     }
   },
@@ -49,6 +59,7 @@
     "forceSize": "off",
     "sheetSize": "1K",
     "sheetAspectRatio": "3:2",
+    "personGeneration": "ALLOW_ALL",
     "maxAspectErrorPct": 3,
     "maxInlineBytes": 7000000,
     "retry": {
@@ -60,6 +71,7 @@
     "cropPaddingPct": 15,
     "featherPx": 8,
     "seamColorMatch": true,
+    "seamMaxShift": 40,
     "seamBandPx": 12,
     "maskThreshold": 128,
     "sharpnessRingPx": 64,
