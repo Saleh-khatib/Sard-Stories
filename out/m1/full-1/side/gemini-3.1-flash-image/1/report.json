@@ -1,0 +1,59 @@
+{
+  "scene": "side",
+  "model": "gemini-3.1-flash-image",
+  "n": 1,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    1024,
+    1024
+  ],
+  "attempts": [
+    {
+      "size": "1K",
+      "width": 1024,
+      "height": 1024,
+      "accepted": true,
+      "costUsd": 0.0689735,
+      "ms": 8230
+    }
+  ],
+  "aspectErrorPct": 0,
+  "seamShift": [
+    -3.5202704759524295,
+    -3.684630244511112,
+    -9.511674381162152
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.4703134142636871,
+    "seamDelta": 6.772648456680904,
+    "seamDeltaBaseline": 14.946029349286174,
+    "sharpnessRatio": 3.255496062739907,
+    "sharpnessBaseline": 2.5728063495274824,
+    "vision": {
+      "likeness": 10,
+      "featureMatch": 10,
+      "styleMatch": 10,
+      "overall": 10,
+      "artifacts": [],
+      "extraFaces": false,
+      "pass": true,
+      "reason": "The character's features are perfectly integrated into the original scene with no visible artifacts."
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": true,
+    "reasons": []
+  },
+  "costUsd": 0.07245399999999999,
+  "genMs": 8231,
+  "files": {
+    "raw": "side/gemini-3.1-flash-image/1/raw.png",
+    "composite": "side/gemini-3.1-flash-image/1/composite.png",
+    "compositeCrop": "side/gemini-3.1-flash-image/1/composite-crop.png"
+  }
+}

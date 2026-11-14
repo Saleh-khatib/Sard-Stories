@@ -1,15 +1,12 @@
-# --- Sard Story Books ---
+# Secrets and build output stay out of git
 .env
 .env.*
 !.env.example
 secrets/
-test-data/**
-!test-data/README.md
-out/
-storage/
-*.sqlite
-*.sqlite-journal
 node_modules/
 .next/
 next-env.d.ts
 *.tsbuildinfo
+*.sqlite
+*.sqlite-journal
+.DS_Store

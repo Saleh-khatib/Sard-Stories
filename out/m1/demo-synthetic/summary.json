@@ -1,0 +1,771 @@
+{
+  "runId": "demo-synthetic",
+  "createdAt": "2026-11-14T13:44:58.481Z",
+  "settingsVersion": 1,
+  "child": {
+    "name": "DEMO (synthetic)",
+    "gender": "boy"
+  },
+  "models": [
+    "demo-model-A",
+    "demo-model-B"
+  ],
+  "sheet": {
+    "file": "sheet/sheet.png",
+    "costUsd": 0.15,
+    "featureCard": {
+      "hairColor": "dark brown",
+      "hairStyle": "short",
+      "skinTone": "olive",
+      "eyes": "brown",
+      "notableFeatures": [
+        "synthetic demo"
+      ]
+    }
+  },
+  "scenes": [
+    {
+      "scene": "front",
+      "view": "front",
+      "box": {
+        "left": 553,
+        "top": 143,
+        "width": 494,
+        "height": 494,
+        "ratio": "1:1"
+      },
+      "sceneSize": [
+        1600,
+        1100
+      ],
+      "instanceMs": {
+        "demo-model-A": 9000,
+        "demo-model-B": 13000
+      },
+      "files": {
+        "original": "front/original.png",
+        "mask": "front/mask.png",
+        "crop": "front/crop.png",
+        "outlined": "front/outlined.png"
+      },
+      "candidates": [
+        {
+          "scene": "front",
+          "model": "demo-model-A",
+          "n": 1,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.47026038302023765,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 30.858792279143078,
+            "sharpnessBaseline": 37.54124449182934,
+            "vision": {
+              "likeness": 7,
+              "featureMatch": 7,
+              "styleMatch": 5,
+              "overall": 5,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": false,
+            "reasons": [
+              "vision score 5 < 7",
+              "judge: SYNTHETIC DEMO DATA, not a real judgement"
+            ]
+          },
+          "costUsd": 0.14,
+          "genMs": 7000,
+          "files": {
+            "raw": "front/demo-model-A/1/raw.png",
+            "composite": "front/demo-model-A/1/composite.png",
+            "compositeCrop": "front/demo-model-A/1/composite-crop.png"
+          }
+        },
+        {
+          "scene": "front",
+          "model": "demo-model-A",
+          "n": 2,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4793040766539553,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 25.770184704999963,
+            "sharpnessBaseline": 37.54124449182934,
+            "vision": {
+              "likeness": 8,
+              "featureMatch": 7,
+              "styleMatch": 5,
+              "overall": 6,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": false,
+            "reasons": [
+              "vision score 6 < 7",
+              "judge: SYNTHETIC DEMO DATA, not a real judgement"
+            ]
+          },
+          "costUsd": 0.14,
+          "genMs": 8000,
+          "files": {
+            "raw": "front/demo-model-A/2/raw.png",
+            "composite": "front/demo-model-A/2/composite.png",
+            "compositeCrop": "front/demo-model-A/2/composite-crop.png"
+          }
+        },
+        {
+          "scene": "front",
+          "model": "demo-model-B",
+          "n": 1,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.47026038302023765,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 30.858792279143078,
+            "sharpnessBaseline": 37.54124449182934,
+            "vision": {
+              "likeness": 8,
+              "featureMatch": 7,
+              "styleMatch": 7,
+              "overall": 7,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": true,
+            "reasons": []
+          },
+          "costUsd": 0.21000000000000002,
+          "genMs": 7000,
+          "files": {
+            "raw": "front/demo-model-B/1/raw.png",
+            "composite": "front/demo-model-B/1/composite.png",
+            "compositeCrop": "front/demo-model-B/1/composite-crop.png"
+          }
+        },
+        {
+          "scene": "front",
+          "model": "demo-model-B",
+          "n": 2,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4793040766539553,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 25.770184704999963,
+            "sharpnessBaseline": 37.54124449182934,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 7,
+              "styleMatch": 7,
+              "overall": 8,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": true,
+            "reasons": []
+          },
+          "costUsd": 0.21000000000000002,
+          "genMs": 8000,
+          "files": {
+            "raw": "front/demo-model-B/2/raw.png",
+            "composite": "front/demo-model-B/2/composite.png",
+            "compositeCrop": "front/demo-model-B/2/composite-crop.png"
+          }
+        }
+      ]
+    },
+    {
+      "scene": "side",
+      "view": "side",
+      "box": {
+        "left": 553,
+        "top": 143,
+        "width": 494,
+        "height": 494,
+        "ratio": "1:1"
+      },
+      "sceneSize": [
+        1600,
+        1100
+      ],
+      "instanceMs": {
+        "demo-model-A": 9000,
+        "demo-model-B": 13000
+      },
+      "files": {
+        "original": "side/original.png",
+        "mask": "side/mask.png",
+        "crop": "side/crop.png",
+        "outlined": "side/outlined.png"
+      },
+      "candidates": [
+        {
+          "scene": "side",
+          "model": "demo-model-A",
+          "n": 1,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.46886086094926166,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 30.858792279143078,
+            "sharpnessBaseline": 37.920336141923904,
+            "vision": {
+              "likeness": 7,
+              "featureMatch": 7,
+              "styleMatch": 5,
+              "overall": 5,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": false,
+            "reasons": [
+              "vision score 5 < 7",
+              "judge: SYNTHETIC DEMO DATA, not a real judgement"
+            ]
+          },
+          "costUsd": 0.14,
+          "genMs": 7000,
+          "files": {
+            "raw": "side/demo-model-A/1/raw.png",
+            "composite": "side/demo-model-A/1/composite.png",
+            "compositeCrop": "side/demo-model-A/1/composite-crop.png"
+          }
+        },
+        {
+          "scene": "side",
+          "model": "demo-model-A",
+          "n": 2,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4779045545829793,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 25.770184704999963,
+            "sharpnessBaseline": 37.920336141923904,
+            "vision": {
+              "likeness": 8,
+              "featureMatch": 7,
+              "styleMatch": 5,
+              "overall": 6,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": false,
+            "reasons": [
+              "vision score 6 < 7",
+              "judge: SYNTHETIC DEMO DATA, not a real judgement"
+            ]
+          },
+          "costUsd": 0.14,
+          "genMs": 8000,
+          "files": {
+            "raw": "side/demo-model-A/2/raw.png",
+            "composite": "side/demo-model-A/2/composite.png",
+            "compositeCrop": "side/demo-model-A/2/composite-crop.png"
+          }
+        },
+        {
+          "scene": "side",
+          "model": "demo-model-B",
+          "n": 1,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.46886086094926166,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 30.858792279143078,
+            "sharpnessBaseline": 37.920336141923904,
+            "vision": {
+              "likeness": 8,
+              "featureMatch": 7,
+              "styleMatch": 7,
+              "overall": 7,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": true,
+            "reasons": []
+          },
+          "costUsd": 0.21000000000000002,
+          "genMs": 7000,
+          "files": {
+            "raw": "side/demo-model-B/1/raw.png",
+            "composite": "side/demo-model-B/1/composite.png",
+            "compositeCrop": "side/demo-model-B/1/composite-crop.png"
+          }
+        },
+        {
+          "scene": "side",
+          "model": "demo-model-B",
+          "n": 2,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4779045545829793,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 25.770184704999963,
+            "sharpnessBaseline": 37.920336141923904,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 7,
+              "styleMatch": 7,
+              "overall": 8,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": true,
+            "reasons": []
+          },
+          "costUsd": 0.21000000000000002,
+          "genMs": 8000,
+          "files": {
+            "raw": "side/demo-model-B/2/raw.png",
+            "composite": "side/demo-model-B/2/composite.png",
+            "compositeCrop": "side/demo-model-B/2/composite-crop.png"
+          }
+        }
+      ]
+    },
+    {
+      "scene": "back",
+      "view": "back",
+      "box": {
+        "left": 553,
+        "top": 143,
+        "width": 494,
+        "height": 494,
+        "ratio": "1:1"
+      },
+      "sceneSize": [
+        1600,
+        1100
+      ],
+      "instanceMs": {
+        "demo-model-A": 9000,
+        "demo-model-B": 13000
+      },
+      "files": {
+        "original": "back/original.png",
+        "mask": "back/mask.png",
+        "crop": "back/crop.png",
+        "outlined": "back/outlined.png"
+      },
+      "candidates": [
+        {
+          "scene": "back",
+          "model": "demo-model-A",
+          "n": 1,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4673770231748654,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 30.858792279143078,
+            "sharpnessBaseline": 38.257475254398685,
+            "vision": {
+              "likeness": 7,
+              "featureMatch": 7,
+              "styleMatch": 5,
+              "overall": 5,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": false,
+            "reasons": [
+              "vision score 5 < 7",
+              "judge: SYNTHETIC DEMO DATA, not a real judgement"
+            ]
+          },
+          "costUsd": 0.14,
+          "genMs": 7000,
+          "files": {
+            "raw": "back/demo-model-A/1/raw.png",
+            "composite": "back/demo-model-A/1/composite.png",
+            "compositeCrop": "back/demo-model-A/1/composite-crop.png"
+          }
+        },
+        {
+          "scene": "back",
+          "model": "demo-model-A",
+          "n": 2,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.476420716808583,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 25.770184704999963,
+            "sharpnessBaseline": 38.257475254398685,
+            "vision": {
+              "likeness": 8,
+              "featureMatch": 7,
+              "styleMatch": 5,
+              "overall": 6,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": false,
+            "reasons": [
+              "vision score 6 < 7",
+              "judge: SYNTHETIC DEMO DATA, not a real judgement"
+            ]
+          },
+          "costUsd": 0.14,
+          "genMs": 8000,
+          "files": {
+            "raw": "back/demo-model-A/2/raw.png",
+            "composite": "back/demo-model-A/2/composite.png",
+            "compositeCrop": "back/demo-model-A/2/composite-crop.png"
+          }
+        },
+        {
+          "scene": "back",
+          "model": "demo-model-B",
+          "n": 1,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4673770231748654,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 30.858792279143078,
+            "sharpnessBaseline": 38.257475254398685,
+            "vision": {
+              "likeness": 8,
+              "featureMatch": 7,
+              "styleMatch": 7,
+              "overall": 7,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": true,
+            "reasons": []
+          },
+          "costUsd": 0.21000000000000002,
+          "genMs": 7000,
+          "files": {
+            "raw": "back/demo-model-B/1/raw.png",
+            "composite": "back/demo-model-B/1/composite.png",
+            "compositeCrop": "back/demo-model-B/1/composite-crop.png"
+          }
+        },
+        {
+          "scene": "back",
+          "model": "demo-model-B",
+          "n": 2,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            741,
+            741
+          ],
+          "attempts": [],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -31.79304956094657,
+            -34.921565709182914,
+            -35.83635957731806
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.476420716808583,
+            "seamDelta": 9.347045974884173,
+            "seamDeltaBaseline": 2.9525449541358957,
+            "sharpnessRatio": 25.770184704999963,
+            "sharpnessBaseline": 38.257475254398685,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 7,
+              "styleMatch": 7,
+              "overall": 8,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": true,
+            "reasons": []
+          },
+          "costUsd": 0.21000000000000002,
+          "genMs": 8000,
+          "files": {
+            "raw": "back/demo-model-B/2/raw.png",
+            "composite": "back/demo-model-B/2/composite.png",
+            "compositeCrop": "back/demo-model-B/2/composite-crop.png"
+          }
+        }
+      ]
+    }
+  ],
+  "totals": [
+    {
+      "model": "demo-model-A",
+      "candidates": 6,
+      "passed": 0,
+      "rejected": 0,
+      "errors": 0,
+      "costUsd": 0.8400000000000001,
+      "avgInstanceMs": 9000,
+      "avg": {
+        "edgeSsim": 0.47335460253164713,
+        "seamDelta": 9.347045974884173,
+        "sharpnessRatio": 28.31448849207152,
+        "visionOverall": 5.5,
+        "likeness": 7.5,
+        "styleMatch": 5
+      }
+    },
+    {
+      "model": "demo-model-B",
+      "candidates": 6,
+      "passed": 6,
+      "rejected": 0,
+      "errors": 0,
+      "costUsd": 1.26,
+      "avgInstanceMs": 13000,
+      "avg": {
+        "edgeSsim": 0.47335460253164713,
+        "seamDelta": 9.347045974884173,
+        "sharpnessRatio": 28.31448849207152,
+        "visionOverall": 7.5,
+        "likeness": 8.5,
+        "styleMatch": 7
+      }
+    }
+  ],
+  "totalCostUsd": 2.25,
+  "thresholds": {
+    "edgeSsimMin": 0.3,
+    "seamDeltaMax": 25,
+    "sharpnessRatioMin": 0.5,
+    "visionScoreMin": 7,
+    "maxAutoRetries": 2
+  }
+}

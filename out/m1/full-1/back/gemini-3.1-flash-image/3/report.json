@@ -1,0 +1,59 @@
+{
+  "scene": "back",
+  "model": "gemini-3.1-flash-image",
+  "n": 3,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    1024,
+    1024
+  ],
+  "attempts": [
+    {
+      "size": "1K",
+      "width": 1024,
+      "height": 1024,
+      "accepted": true,
+      "costUsd": 0.068979,
+      "ms": 90890
+    }
+  ],
+  "aspectErrorPct": 0,
+  "seamShift": [
+    6.589977644226309,
+    1.5736853736137562,
+    -7.720068861866935
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.48597821277283676,
+    "seamDelta": 5.55359797595407,
+    "seamDeltaBaseline": 12.050347732150257,
+    "sharpnessRatio": 6.9100849091825465,
+    "sharpnessBaseline": 4.967660789534462,
+    "vision": {
+      "likeness": 10,
+      "featureMatch": 10,
+      "styleMatch": 10,
+      "overall": 10,
+      "artifacts": [],
+      "extraFaces": false,
+      "pass": true,
+      "reason": "The edited image perfectly captures the character's hair and skin tone from the back view while maintaining the original art style."
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": true,
+    "reasons": []
+  },
+  "costUsd": 0.0721205,
+  "genMs": 90890,
+  "files": {
+    "raw": "back/gemini-3.1-flash-image/3/raw.png",
+    "composite": "back/gemini-3.1-flash-image/3/composite.png",
+    "compositeCrop": "back/gemini-3.1-flash-image/3/composite-crop.png"
+  }
+}

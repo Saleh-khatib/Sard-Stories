@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M1 report disney-1</title><style>
+:root{color-scheme:light dark;--bg:#fff;--fg:#1a1a1a;--mut:#666;--line:#ddd;--card:#f7f7f8;--ok:#1a7f37;--bad:#c62828}
+@media (prefers-color-scheme:dark){:root{--bg:#141416;--fg:#eee;--mut:#9a9aa0;--line:#333;--card:#1d1d21;--ok:#4cc26a;--bad:#ef6a6a}}
+body{margin:0;padding:24px;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif}
+h1{margin:0 0 4px}h2{margin:32px 0 8px}h3{margin:16px 0 8px}
+.mut{color:var(--mut)}table{border-collapse:collapse}td,th{padding:4px 10px;border-bottom:1px solid var(--line);text-align:left}
+.row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;width:340px}
+.card img.z{width:100%;display:block;cursor:zoom-in;border-radius:4px}
+.badge{display:inline-block;padding:1px 8px;border-radius:10px;font-weight:600;font-size:12px}
+.pass{background:var(--ok);color:#fff}.fail{background:var(--bad);color:#fff}
+.cmp{position:relative;cursor:ew-resize}.cmp img{width:100%;display:block}
+.cmp .top{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--p,50%)) 0 0)}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;background:#fff;box-shadow:0 0 3px #000}
+.cmp .tag{position:absolute;top:6px;font-size:11px;background:#000a;color:#fff;padding:1px 6px;border-radius:3px}
+#lb{position:fixed;inset:0;background:#000d;overflow:auto;display:none;z-index:9;cursor:zoom-out}
+#lb img{display:block;margin:0 auto;max-width:none}
+.zbtn{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:zoom-in;font:inherit}
+.bad{color:var(--bad)}.ok{color:var(--ok)}
+</style></head><body>
+<h1>M1 proof of concept</h1>
+<div class="mut">Run disney-1 · 2026-11-14T15:04:09.485Z · settings v2 · child Saleh (boy) · total cost $0.362</div>
+<h2>Totals per model</h2><table><tr><th>Model</th><th>Passed</th><th>Rejected</th><th>Errors</th><th>Edge SSIM</th><th>Seam Δ</th><th>Sharpness</th><th>Likeness</th><th>Style</th><th>Vision</th><th>Cost</th><th>Avg time / instance</th></tr><tr><td>gemini-3.1-flash-image</td><td>3/3</td><td>0</td><td>0</td>
+<td>0.47</td><td>6.2</td><td>4.32</td>
+<td>9.3</td><td>10.0</td><td>9.7</td>
+<td>$0.218</td><td>22.6s</td></tr></table>
+<div class="mut">Thresholds: edge SSIM ≥ 0.4, seam Δ ≤ 16, sharpness ≥ 2, vision ≥ 8. Sheet cost $0.144.</div>
+<h2>Character sheet</h2><div class="row"><div class="card" style="width:520px"><img class="z" src="sheet/sheet.png"></div>
+<table><tr><td>Hair colour</td><td>dark brown</td></tr><tr><td>Hair style</td><td>short and curly</td></tr><tr><td>Skin tone</td><td>tan</td></tr><tr><td>Eyes</td><td>large brown</td></tr><tr><td>Features</td><td>thick eyebrows, wide smile</td></tr></table></div>
+<section><h2>front <span class="mut">crop 500×500 (1:1)</span></h2>
+<div class="row"><div class="card"><b>Original</b><img class="z" src="front/original.png" loading="lazy"><div class="mut">1254×1254</div></div><div class="card"><b>Mask</b><img class="z" src="front/mask.png" loading="lazy"><div class="mut">1254×1254</div></div><div class="card"><b>Crop sent to model</b><img class="z" src="front/outlined.png" loading="lazy"><div class="mut">1254×1254</div></div></div><h3>gemini-3.1-flash-image <span class="mut">10.5s for 1 candidates</span></h3><div class="row"><div class="card"><b>#1</b> <span class="badge pass">PASS</span> <span class="mut">$0.073 · 10.5s</span>
+<div class="cmp"><img src="front/gemini-3.1-flash-image/1/composite-crop.png"><div class="top"><img src="front/crop.png"></div><div class="bar"></div><span class="tag" style="left:6px">original</span><span class="tag" style="right:6px">edited</span></div>
+<div class="mut">drag to compare · <button class="zbtn" data-full="front/gemini-3.1-flash-image/1/composite-crop.png">zoom crop</button> · <button class="zbtn" data-full="front/gemini-3.1-flash-image/1/composite.png">zoom full page</button> · <button class="zbtn" data-full="front/gemini-3.1-flash-image/1/raw.png">raw model output</button></div>
+<table>
+<tr><td>Outside mask identical</td><td class="ok">yes</td></tr>
+<tr><td>Edge SSIM</td><td>0.50</td></tr>
+<tr><td>Seam Δ (original art 13.9)</td><td>6.3</td></tr>
+<tr><td>Sharpness (orig 3.16)</td><td>3.34</td></tr>
+<tr><td>Likeness / features / style</td><td>10 / 10 / 10</td></tr><tr><td>Vision overall</td><td>10</td></tr>
+<tr><td>Output</td><td>1024×1024 (1K), crop 500×500</td></tr>
+</table>
+
+<div class="mut">The character's features and style are perfectly maintained and integrated seamlessly into the scene.</div>
+</div></div></section><section><h2>side <span class="mut">crop 550×550 (1:1)</span></h2>
+<div class="row"><div class="card"><b>Original</b><img class="z" src="side/original.png" loading="lazy"><div class="mut">1254×1254</div></div><div class="card"><b>Mask</b><img class="z" src="side/mask.png" loading="lazy"><div class="mut">1254×1254</div></div><div class="card"><b>Crop sent to model</b><img class="z" src="side/outlined.png" loading="lazy"><div class="mut">1254×1254</div></div></div><h3>gemini-3.1-flash-image <span class="mut">9.4s for 1 candidates</span></h3><div class="row"><div class="card"><b>#1</b> <span class="badge pass">PASS</span> <span class="mut">$0.073 · 9.4s</span>
+<div class="cmp"><img src="side/gemini-3.1-flash-image/1/composite-crop.png"><div class="top"><img src="side/crop.png"></div><div class="bar"></div><span class="tag" style="left:6px">original</span><span class="tag" style="right:6px">edited</span></div>
+<div class="mut">drag to compare · <button class="zbtn" data-full="side/gemini-3.1-flash-image/1/composite-crop.png">zoom crop</button> · <button class="zbtn" data-full="side/gemini-3.1-flash-image/1/composite.png">zoom full page</button> · <button class="zbtn" data-full="side/gemini-3.1-flash-image/1/raw.png">raw model output</button></div>
+<table>
+<tr><td>Outside mask identical</td><td class="ok">yes</td></tr>
+<tr><td>Edge SSIM</td><td>0.48</td></tr>
+<tr><td>Seam Δ (original art 14.9)</td><td>6.8</td></tr>
+<tr><td>Sharpness (orig 2.57)</td><td>3.10</td></tr>
+<tr><td>Likeness / features / style</td><td>9 / 10 / 10</td></tr><tr><td>Vision overall</td><td>9.5</td></tr>
+<tr><td>Output</td><td>1024×1024 (1K), crop 550×550</td></tr>
+</table>
+
+<div class="mut">The character's features are accurately represented and the head is perfectly integrated into the original scene's style.</div>
+</div></div></section><section><h2>back <span class="mut">crop 491×491 (1:1)</span></h2>
+<div class="row"><div class="card"><b>Original</b><img class="z" src="back/original.png" loading="lazy"><div class="mut">1254×1254</div></div><div class="card"><b>Mask</b><img class="z" src="back/mask.png" loading="lazy"><div class="mut">1254×1254</div></div><div class="card"><b>Crop sent to model</b><img class="z" src="back/outlined.png" loading="lazy"><div class="mut">1254×1254</div></div></div><h3>gemini-3.1-flash-image <span class="mut">48.0s for 1 candidates</span></h3><div class="row"><div class="card"><b>#1</b> <span class="badge pass">PASS</span> <span class="mut">$0.072 · 48.0s</span>
+<div class="cmp"><img src="back/gemini-3.1-flash-image/1/composite-crop.png"><div class="top"><img src="back/crop.png"></div><div class="bar"></div><span class="tag" style="left:6px">original</span><span class="tag" style="right:6px">edited</span></div>
+<div class="mut">drag to compare · <button class="zbtn" data-full="back/gemini-3.1-flash-image/1/composite-crop.png">zoom crop</button> · <button class="zbtn" data-full="back/gemini-3.1-flash-image/1/composite.png">zoom full page</button> · <button class="zbtn" data-full="back/gemini-3.1-flash-image/1/raw.png">raw model output</button></div>
+<table>
+<tr><td>Outside mask identical</td><td class="ok">yes</td></tr>
+<tr><td>Edge SSIM</td><td>0.45</td></tr>
+<tr><td>Seam Δ (original art 12.1)</td><td>5.5</td></tr>
+<tr><td>Sharpness (orig 4.97)</td><td>6.52</td></tr>
+<tr><td>Likeness / features / style</td><td>9 / 10 / 10</td></tr><tr><td>Vision overall</td><td>9.5</td></tr>
+<tr><td>Output</td><td>1024×1024 (1K), crop 491×491</td></tr>
+</table>
+
+<div class="mut">The hair color and curly texture now perfectly match the character sheet while maintaining the original illustration style.</div>
+</div></div></section>
+<div id="lb"><img alt=""></div><script>
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+document.addEventListener('click',e=>{const t=e.target;
+ if(t.matches('img.z,.zbtn')){lbi.src=t.dataset.full||t.src;lb.style.display='block';lb.scrollTop=0}
+ else if(lb.contains(t)){lb.style.display='none'}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.style.display='none'});
+for(const c of document.querySelectorAll('.cmp')){
+ const set=x=>{const r=c.getBoundingClientRect();c.style.setProperty('--p',Math.max(0,Math.min(100,(x-r.left)/r.width*100))+'%')};
+ let d=false;c.addEventListener('pointerdown',e=>{d=true;c.setPointerCapture(e.pointerId);set(e.clientX)});
+ c.addEventListener('pointermove',e=>{if(d)set(e.clientX)});c.addEventListener('pointerup',()=>d=false)}
+</script></body></html>

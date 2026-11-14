@@ -1,0 +1,115 @@
+{
+  "id": "2026-11-14T15-19-36-086Z",
+  "createdAt": "2026-11-14T15:19:36.090Z",
+  "options": {
+    "mode": "enhance",
+    "model": "gemini-3.1-flash-image",
+    "ratio": "auto",
+    "size": "1K",
+    "versions": 2,
+    "prompt": "",
+    "improvePrompt": false
+  },
+  "state": "done",
+  "jobs": [
+    {
+      "id": "j1",
+      "name": "side.png",
+      "refs": [
+        "2026-11-14T15-19-36-086Z/j1/ref-1.png"
+      ],
+      "refSizes": [
+        [
+          1254,
+          1254
+        ]
+      ],
+      "state": "done",
+      "finalPrompt": "Upscale and enhance this image to the highest possible resolution and sharpness. Keep the composition, every object, every face, all colours, all text and the art style exactly as they are: do not add, remove, move or restyle anything. Reconstruct fine detail (line work, textures, hair, fabric, foliage) cleanly and crisply, with no blur, no noise, no compression artifacts, no watermark and no border.",
+      "versions": [
+        {
+          "n": 1,
+          "file": "2026-11-14T15-19-36-086Z/j1/v1.png",
+          "width": 1024,
+          "height": 1024,
+          "costUsd": 0.067804,
+          "ms": 9297,
+          "structureMatch": 0.8754158722081525,
+          "sharpnessGain": 1.5902629704768634,
+          "aspectErrorPct": 0,
+          "warnings": [
+            "output 1024x1024 is smaller than the input 1254x1254"
+          ],
+          "error": null
+        },
+        {
+          "n": 2,
+          "file": "2026-11-14T15-19-36-086Z/j1/v2.png",
+          "width": 1024,
+          "height": 1024,
+          "costUsd": 0.067804,
+          "ms": 10101,
+          "structureMatch": 0.9065811634426421,
+          "sharpnessGain": 1.2392049907809204,
+          "aspectErrorPct": 0,
+          "warnings": [
+            "output 1024x1024 is smaller than the input 1254x1254"
+          ],
+          "error": null
+        }
+      ],
+      "selected": 1,
+      "error": null
+    },
+    {
+      "id": "j2",
+      "name": "back.png",
+      "refs": [
+        "2026-11-14T15-19-36-086Z/j2/ref-1.png"
+      ],
+      "refSizes": [
+        [
+          1254,
+          1254
+        ]
+      ],
+      "state": "done",
+      "finalPrompt": "Upscale and enhance this image to the highest possible resolution and sharpness. Keep the composition, every object, every face, all colours, all text and the art style exactly as they are: do not add, remove, move or restyle anything. Reconstruct fine detail (line work, textures, hair, fabric, foliage) cleanly and crisply, with no blur, no noise, no compression artifacts, no watermark and no border.",
+      "versions": [
+        {
+          "n": 1,
+          "file": "2026-11-14T15-19-36-086Z/j2/v1.png",
+          "width": 1024,
+          "height": 1024,
+          "costUsd": 0.067804,
+          "ms": 88490,
+          "structureMatch": 0.8721632079669821,
+          "sharpnessGain": 1.5448115477636284,
+          "aspectErrorPct": 0,
+          "warnings": [
+            "output 1024x1024 is smaller than the input 1254x1254"
+          ],
+          "error": null
+        },
+        {
+          "n": 2,
+          "file": "2026-11-14T15-19-36-086Z/j2/v2.png",
+          "width": 1024,
+          "height": 1024,
+          "costUsd": 0.067804,
+          "ms": 13634,
+          "structureMatch": 0.8918534702371012,
+          "sharpnessGain": 1.4895692257503161,
+          "aspectErrorPct": 0,
+          "warnings": [
+            "output 1024x1024 is smaller than the input 1254x1254"
+          ],
+          "error": null
+        }
+      ],
+      "selected": null,
+      "error": null
+    }
+  ],
+  "totalCostUsd": 0.271216
+}

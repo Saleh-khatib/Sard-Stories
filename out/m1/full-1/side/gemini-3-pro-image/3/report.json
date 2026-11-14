@@ -1,0 +1,59 @@
+{
+  "scene": "side",
+  "model": "gemini-3-pro-image",
+  "n": 3,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    1024,
+    1024
+  ],
+  "attempts": [
+    {
+      "size": "1K",
+      "width": 1024,
+      "height": 1024,
+      "accepted": true,
+      "costUsd": 0.141914,
+      "ms": 60403
+    }
+  ],
+  "aspectErrorPct": 0,
+  "seamShift": [
+    -4.66905077955488,
+    -4.569759766450545,
+    -10.147955628802038
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.48731718992819445,
+    "seamDelta": 7.036973476655967,
+    "seamDeltaBaseline": 14.946029349286174,
+    "sharpnessRatio": 3.0860718122395454,
+    "sharpnessBaseline": 2.5728063495274824,
+    "vision": {
+      "likeness": 9,
+      "featureMatch": 10,
+      "styleMatch": 9,
+      "overall": 9,
+      "artifacts": [],
+      "extraFaces": false,
+      "pass": true,
+      "reason": "The character's features are accurately represented and the head is seamlessly integrated into the original scene's style."
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": true,
+    "reasons": []
+  },
+  "costUsd": 0.1453645,
+  "genMs": 60403,
+  "files": {
+    "raw": "side/gemini-3-pro-image/3/raw.png",
+    "composite": "side/gemini-3-pro-image/3/composite.png",
+    "compositeCrop": "side/gemini-3-pro-image/3/composite-crop.png"
+  }
+}

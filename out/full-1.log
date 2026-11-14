@@ -1,0 +1,49 @@
+$ tsx scripts/m1-run.ts --run-id full-1
+run full-1: scenes=front,side,back models=gemini-3-pro-image,gemini-3.1-flash-image candidates=3
+[0/18] character sheet
+[0/18] front · gemini-3-pro-image: generating
+[0/18] front · gemini-3-pro-image #1: QA
+[1/18] front · gemini-3-pro-image #1: QA
+[1/18] front · gemini-3-pro-image #2: QA
+[2/18] front · gemini-3-pro-image #2: QA
+[2/18] front · gemini-3-pro-image #3: QA
+[3/18] front · gemini-3-pro-image #3: QA
+[3/18] front · gemini-3.1-flash-image: generating
+[3/18] front · gemini-3.1-flash-image #1: QA
+[4/18] front · gemini-3.1-flash-image #1: QA
+[4/18] front · gemini-3.1-flash-image #2: QA
+[5/18] front · gemini-3.1-flash-image #2: QA
+[5/18] front · gemini-3.1-flash-image #3: QA
+[6/18] front · gemini-3.1-flash-image #3: QA
+[6/18] side · gemini-3-pro-image: generating
+[6/18] side · gemini-3-pro-image #1: QA
+[7/18] side · gemini-3-pro-image #1: QA
+[7/18] side · gemini-3-pro-image #2: QA
+[8/18] side · gemini-3-pro-image #2: QA
+[8/18] side · gemini-3-pro-image #3: QA
+[9/18] side · gemini-3-pro-image #3: QA
+[9/18] side · gemini-3.1-flash-image: generating
+[9/18] side · gemini-3.1-flash-image #1: QA
+[10/18] side · gemini-3.1-flash-image #1: QA
+[10/18] side · gemini-3.1-flash-image #2: QA
+[11/18] side · gemini-3.1-flash-image #2: QA
+[11/18] side · gemini-3.1-flash-image #3: QA
+[12/18] side · gemini-3.1-flash-image #3: QA
+[12/18] back · gemini-3-pro-image: generating
+[12/18] back · gemini-3-pro-image #1: QA
+[13/18] back · gemini-3-pro-image #1: QA
+[13/18] back · gemini-3-pro-image #2: QA
+[14/18] back · gemini-3-pro-image #2: QA
+[14/18] back · gemini-3-pro-image #3: QA
+[15/18] back · gemini-3-pro-image #3: QA
+[15/18] back · gemini-3.1-flash-image: generating
+[15/18] back · gemini-3.1-flash-image #1: QA
+[16/18] back · gemini-3.1-flash-image #1: QA
+[16/18] back · gemini-3.1-flash-image #2: QA
+[17/18] back · gemini-3.1-flash-image #2: QA
+[17/18] back · gemini-3.1-flash-image #3: QA
+[18/18] back · gemini-3.1-flash-image #3: QA
+[18/18] finished
+gemini-3-pro-image: 9/9 passed, $1.309, 111.0s/instance
+gemini-3.1-flash-image: 9/9 passed, $0.655, 101.5s/instance
+report: out/m1/full-1/report.html (latest: out/m1/report.html)

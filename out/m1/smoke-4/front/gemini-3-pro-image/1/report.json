@@ -1,0 +1,66 @@
+{
+  "scene": "front",
+  "model": "gemini-3-pro-image",
+  "n": 1,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    928,
+    1152
+  ],
+  "attempts": [
+    {
+      "size": "1K",
+      "width": 928,
+      "height": 1152,
+      "accepted": true,
+      "costUsd": 0.141672,
+      "ms": 17256
+    }
+  ],
+  "aspectErrorPct": 0.694444444444442,
+  "seamShift": [
+    37.34857235597556,
+    26.50432309654289,
+    21.23818426322083
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.29596175625847626,
+    "seamDelta": 35.75668931674075,
+    "seamDeltaBaseline": 69.50254582351796,
+    "sharpnessRatio": 1.235636664394524,
+    "sharpnessBaseline": 1.0694764679742785,
+    "vision": {
+      "likeness": 9,
+      "featureMatch": 10,
+      "styleMatch": 7,
+      "overall": 4,
+      "artifacts": [
+        "leftover original hair",
+        "visible neck seam"
+      ],
+      "extraFaces": false,
+      "pass": false,
+      "reason": "The original brown hair is clearly visible behind the new head, creating a distracting halo effect."
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": false,
+    "reasons": [
+      "structure changed (edge SSIM 0.30 < 0.3)",
+      "vision score 4 < 7",
+      "judge: The original brown hair is clearly visible behind the new head, creating a distracting halo effect."
+    ]
+  },
+  "costUsd": 0.14703549999999999,
+  "genMs": 17256,
+  "files": {
+    "raw": "front/gemini-3-pro-image/1/raw.png",
+    "composite": "front/gemini-3-pro-image/1/composite.png",
+    "compositeCrop": "front/gemini-3-pro-image/1/composite-crop.png"
+  }
+}

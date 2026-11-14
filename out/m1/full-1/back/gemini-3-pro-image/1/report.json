@@ -1,0 +1,59 @@
+{
+  "scene": "back",
+  "model": "gemini-3-pro-image",
+  "n": 1,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    1024,
+    1024
+  ],
+  "attempts": [
+    {
+      "size": "1K",
+      "width": 1024,
+      "height": 1024,
+      "accepted": true,
+      "costUsd": 0.141804,
+      "ms": 17789
+    }
+  ],
+  "aspectErrorPct": 0,
+  "seamShift": [
+    4.527871792865227,
+    0.3362781731667326,
+    -8.798140227716686
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.9439681662751889,
+    "seamDelta": 5.574959581294611,
+    "seamDeltaBaseline": 12.050347732150257,
+    "sharpnessRatio": 4.323335974754683,
+    "sharpnessBaseline": 4.967660789534462,
+    "vision": {
+      "likeness": 10,
+      "featureMatch": 10,
+      "styleMatch": 10,
+      "overall": 10,
+      "artifacts": [],
+      "extraFaces": false,
+      "pass": true,
+      "reason": "The hair color was successfully changed to black, perfectly matching the character sheet and maintaining the original art style."
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": true,
+    "reasons": []
+  },
+  "costUsd": 0.14493050000000002,
+  "genMs": 17789,
+  "files": {
+    "raw": "back/gemini-3-pro-image/1/raw.png",
+    "composite": "back/gemini-3-pro-image/1/composite.png",
+    "compositeCrop": "back/gemini-3-pro-image/1/composite-crop.png"
+  }
+}

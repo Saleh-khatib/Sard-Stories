@@ -1,0 +1,67 @@
+{
+  "scene": "front",
+  "model": "gemini-3-pro-image",
+  "n": 1,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    928,
+    1152
+  ],
+  "attempts": [
+    {
+      "size": "1K",
+      "width": 928,
+      "height": 1152,
+      "accepted": true,
+      "costUsd": 0.141468,
+      "ms": 26202
+    }
+  ],
+  "aspectErrorPct": 0.694444444444442,
+  "seamShift": [
+    31.105594587328,
+    18.624174350709552,
+    15.623384534808451
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.33600862668050674,
+    "seamDelta": 25.61831300346961,
+    "seamDeltaBaseline": 65.73115239604203,
+    "sharpnessRatio": 1.251629042796978,
+    "sharpnessBaseline": 1.2618394065147471,
+    "vision": {
+      "likeness": 10,
+      "featureMatch": 10,
+      "styleMatch": 9,
+      "overall": 5,
+      "artifacts": [
+        "visible brown hair from the original image behind the new head",
+        "white halo/seam around the hair",
+        "messy ear integration with double outlines"
+      ],
+      "extraFaces": false,
+      "pass": false,
+      "reason": "The edit is poorly integrated with visible remnants of the original hair and a white halo around the head."
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": false,
+    "reasons": [
+      "visible seam (25.6 > 25)",
+      "vision score 5 < 7",
+      "judge: The edit is poorly integrated with visible remnants of the original hair and a white halo around the head."
+    ]
+  },
+  "costUsd": 0.14645650000000002,
+  "genMs": 26202,
+  "files": {
+    "raw": "front/gemini-3-pro-image/1/raw.png",
+    "composite": "front/gemini-3-pro-image/1/composite.png",
+    "compositeCrop": "front/gemini-3-pro-image/1/composite-crop.png"
+  }
+}

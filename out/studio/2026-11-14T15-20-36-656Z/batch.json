@@ -1,0 +1,55 @@
+{
+  "id": "2026-11-14T15-20-36-656Z",
+  "createdAt": "2026-11-14T15:20:36.656Z",
+  "options": {
+    "mode": "generate",
+    "model": "gemini-3.1-flash-image",
+    "ratio": "16:9",
+    "size": "1K",
+    "versions": 2,
+    "prompt": "a small red fox sleeping under a tree in a watercolour children storybook style",
+    "improvePrompt": true
+  },
+  "state": "done",
+  "jobs": [
+    {
+      "id": "j1",
+      "name": "a small red fox sleeping under a tree in a watercolour child",
+      "refs": [],
+      "refSizes": [],
+      "state": "done",
+      "finalPrompt": "A whimsical watercolor illustration of a small, fluffy red fox peacefully sleeping, curled into a cozy ball with its bushy white-tipped tail tucked over its nose. The fox is nestled between the thick, moss-covered roots of a large, ancient tree. The scene is set on a lush forest floor with soft green grass, delicate blue wildflowers, and a few scattered autumn leaves. Gentle, dappled sunlight filters through the overhead canopy, casting warm, soft glows on the fox's fur. The style features soft color bleeds, visible paper texture, and fine, delicate pencil outlines characteristic of a classic children's storybook. The palette is composed of warm oranges, earthy browns, and soft greens, creating a serene and magical atmosphere.",
+      "versions": [
+        {
+          "n": 1,
+          "file": null,
+          "width": null,
+          "height": null,
+          "costUsd": 0,
+          "ms": 0,
+          "structureMatch": null,
+          "sharpnessGain": null,
+          "aspectErrorPct": null,
+          "warnings": [],
+          "error": "{\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}"
+        },
+        {
+          "n": 2,
+          "file": "2026-11-14T15-20-36-656Z/j1/v2.png",
+          "width": 1376,
+          "height": 768,
+          "costUsd": 0.067274,
+          "ms": 8829,
+          "structureMatch": null,
+          "sharpnessGain": null,
+          "aspectErrorPct": null,
+          "warnings": [],
+          "error": null
+        }
+      ],
+      "selected": 2,
+      "error": null
+    }
+  ],
+  "totalCostUsd": 0.069133
+}

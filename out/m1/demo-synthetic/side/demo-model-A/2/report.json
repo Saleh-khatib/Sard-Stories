@@ -1,0 +1,53 @@
+{
+  "scene": "side",
+  "model": "demo-model-A",
+  "n": 2,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    741,
+    741
+  ],
+  "attempts": [],
+  "aspectErrorPct": 0,
+  "seamShift": [
+    -31.79304956094657,
+    -34.921565709182914,
+    -35.83635957731806
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.4779045545829793,
+    "seamDelta": 9.347045974884173,
+    "seamDeltaBaseline": 2.9525449541358957,
+    "sharpnessRatio": 25.770184704999963,
+    "sharpnessBaseline": 37.920336141923904,
+    "vision": {
+      "likeness": 8,
+      "featureMatch": 7,
+      "styleMatch": 5,
+      "overall": 6,
+      "artifacts": [],
+      "extraFaces": false,
+      "pass": false,
+      "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": false,
+    "reasons": [
+      "vision score 6 < 7",
+      "judge: SYNTHETIC DEMO DATA, not a real judgement"
+    ]
+  },
+  "costUsd": 0.14,
+  "genMs": 8000,
+  "files": {
+    "raw": "side/demo-model-A/2/raw.png",
+    "composite": "side/demo-model-A/2/composite.png",
+    "compositeCrop": "side/demo-model-A/2/composite-crop.png"
+  }
+}

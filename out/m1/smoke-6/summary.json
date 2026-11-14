@@ -1,0 +1,139 @@
+{
+  "runId": "smoke-6",
+  "createdAt": "2026-11-14T14:40:12.379Z",
+  "settingsVersion": 1,
+  "child": {
+    "name": "Saleh",
+    "gender": "boy"
+  },
+  "models": [
+    "gemini-3-pro-image"
+  ],
+  "sheet": {
+    "file": "sheet/sheet.png",
+    "featureCard": {
+      "hairColor": "black",
+      "hairStyle": "short and wavy",
+      "skinTone": "medium",
+      "eyes": "dark brown",
+      "notableFeatures": [
+        "thick eyebrows"
+      ]
+    },
+    "costUsd": 0.14159750000000002
+  },
+  "scenes": [
+    {
+      "scene": "front",
+      "view": "front",
+      "box": {
+        "left": 367,
+        "top": 0,
+        "width": 500,
+        "height": 500,
+        "ratio": "1:1"
+      },
+      "sceneSize": [
+        1254,
+        1254
+      ],
+      "files": {
+        "original": "front/original.png",
+        "mask": "front/mask.png",
+        "crop": "front/crop.png",
+        "outlined": "front/outlined.png"
+      },
+      "instanceMs": {
+        "gemini-3-pro-image": 24469
+      },
+      "candidates": [
+        {
+          "scene": "front",
+          "model": "gemini-3-pro-image",
+          "n": 1,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            1024,
+            1024
+          ],
+          "attempts": [
+            {
+              "size": "1K",
+              "width": 1024,
+              "height": 1024,
+              "accepted": true,
+              "costUsd": 0.14214,
+              "ms": 24468
+            }
+          ],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -0.5709084851944226,
+            -5.771654558344068,
+            -9.024232919880575
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4731079519311986,
+            "seamDelta": 6.408586564390423,
+            "seamDeltaBaseline": 13.948510630263007,
+            "sharpnessRatio": 3.1725832372372818,
+            "sharpnessBaseline": 3.1639714551271676,
+            "vision": {
+              "likeness": 10,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 10,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The edit seamlessly integrates the character's features into the original illustration while maintaining perfect style consistency."
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": true,
+            "reasons": []
+          },
+          "costUsd": 0.1480205,
+          "genMs": 24469,
+          "files": {
+            "raw": "front/gemini-3-pro-image/1/raw.png",
+            "composite": "front/gemini-3-pro-image/1/composite.png",
+            "compositeCrop": "front/gemini-3-pro-image/1/composite-crop.png"
+          }
+        }
+      ]
+    }
+  ],
+  "totals": [
+    {
+      "model": "gemini-3-pro-image",
+      "candidates": 1,
+      "passed": 1,
+      "rejected": 0,
+      "errors": 0,
+      "costUsd": 0.1480205,
+      "avgInstanceMs": 24469,
+      "avg": {
+        "edgeSsim": 0.4731079519311986,
+        "seamDelta": 6.408586564390423,
+        "sharpnessRatio": 3.1725832372372818,
+        "visionOverall": 10,
+        "likeness": 10,
+        "styleMatch": 10
+      }
+    }
+  ],
+  "totalCostUsd": 0.28961800000000004,
+  "thresholds": {
+    "edgeSsimMin": 0.3,
+    "seamDeltaMax": 25,
+    "sharpnessRatioMin": 0.5,
+    "visionScoreMin": 7,
+    "maxAutoRetries": 2
+  }
+}

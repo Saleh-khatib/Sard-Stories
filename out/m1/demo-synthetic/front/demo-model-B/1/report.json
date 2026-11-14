@@ -1,0 +1,50 @@
+{
+  "scene": "front",
+  "model": "demo-model-B",
+  "n": 1,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    741,
+    741
+  ],
+  "attempts": [],
+  "aspectErrorPct": 0,
+  "seamShift": [
+    -31.79304956094657,
+    -34.921565709182914,
+    -35.83635957731806
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.47026038302023765,
+    "seamDelta": 9.347045974884173,
+    "seamDeltaBaseline": 2.9525449541358957,
+    "sharpnessRatio": 30.858792279143078,
+    "sharpnessBaseline": 37.54124449182934,
+    "vision": {
+      "likeness": 8,
+      "featureMatch": 7,
+      "styleMatch": 7,
+      "overall": 7,
+      "artifacts": [],
+      "extraFaces": false,
+      "pass": true,
+      "reason": "SYNTHETIC DEMO DATA, not a real judgement"
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": true,
+    "reasons": []
+  },
+  "costUsd": 0.21000000000000002,
+  "genMs": 7000,
+  "files": {
+    "raw": "front/demo-model-B/1/raw.png",
+    "composite": "front/demo-model-B/1/composite.png",
+    "compositeCrop": "front/demo-model-B/1/composite-crop.png"
+  }
+}

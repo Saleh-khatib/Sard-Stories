@@ -1,0 +1,59 @@
+{
+  "scene": "back",
+  "model": "gemini-3.1-flash-image",
+  "n": 2,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    1024,
+    1024
+  ],
+  "attempts": [
+    {
+      "size": "1K",
+      "width": 1024,
+      "height": 1024,
+      "accepted": true,
+      "costUsd": 0.068979,
+      "ms": 15215
+    }
+  ],
+  "aspectErrorPct": 0,
+  "seamShift": [
+    6.772543302404642,
+    1.8699254949516728,
+    -7.652933873441924
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.44973424466712886,
+    "seamDelta": 5.549001027403995,
+    "seamDeltaBaseline": 12.050347732150257,
+    "sharpnessRatio": 5.961851323151956,
+    "sharpnessBaseline": 4.967660789534462,
+    "vision": {
+      "likeness": 10,
+      "featureMatch": 10,
+      "styleMatch": 10,
+      "overall": 10,
+      "artifacts": [],
+      "extraFaces": false,
+      "pass": true,
+      "reason": "The hair color and style perfectly match the character sheet while maintaining the original illustration's quality."
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": true,
+    "reasons": []
+  },
+  "costUsd": 0.0730445,
+  "genMs": 15216,
+  "files": {
+    "raw": "back/gemini-3.1-flash-image/2/raw.png",
+    "composite": "back/gemini-3.1-flash-image/2/composite.png",
+    "compositeCrop": "back/gemini-3.1-flash-image/2/composite-crop.png"
+  }
+}

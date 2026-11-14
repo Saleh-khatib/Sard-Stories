@@ -1,0 +1,59 @@
+{
+  "scene": "front",
+  "model": "gemini-3-pro-image",
+  "n": 1,
+  "status": "ok",
+  "reason": null,
+  "requestedSize": "1K",
+  "outputSize": [
+    1024,
+    1024
+  ],
+  "attempts": [
+    {
+      "size": "1K",
+      "width": 1024,
+      "height": 1024,
+      "accepted": true,
+      "costUsd": 0.14214,
+      "ms": 24468
+    }
+  ],
+  "aspectErrorPct": 0,
+  "seamShift": [
+    -0.5709084851944226,
+    -5.771654558344068,
+    -9.024232919880575
+  ],
+  "qa": {
+    "outsideIdentical": true,
+    "outsideDiffBytes": 0,
+    "edgeSsim": 0.4731079519311986,
+    "seamDelta": 6.408586564390423,
+    "seamDeltaBaseline": 13.948510630263007,
+    "sharpnessRatio": 3.1725832372372818,
+    "sharpnessBaseline": 3.1639714551271676,
+    "vision": {
+      "likeness": 10,
+      "featureMatch": 10,
+      "styleMatch": 10,
+      "overall": 10,
+      "artifacts": [],
+      "extraFaces": false,
+      "pass": true,
+      "reason": "The edit seamlessly integrates the character's features into the original illustration while maintaining perfect style consistency."
+    },
+    "visionError": null
+  },
+  "verdict": {
+    "pass": true,
+    "reasons": []
+  },
+  "costUsd": 0.1480205,
+  "genMs": 24469,
+  "files": {
+    "raw": "front/gemini-3-pro-image/1/raw.png",
+    "composite": "front/gemini-3-pro-image/1/composite.png",
+    "compositeCrop": "front/gemini-3-pro-image/1/composite-crop.png"
+  }
+}

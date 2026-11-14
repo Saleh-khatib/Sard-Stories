@@ -1,0 +1,276 @@
+{
+  "runId": "smoke-5",
+  "createdAt": "2026-11-14T14:36:39.562Z",
+  "settingsVersion": 1,
+  "child": {
+    "name": "Saleh",
+    "gender": "boy"
+  },
+  "models": [
+    "gemini-3-pro-image"
+  ],
+  "sheet": {
+    "file": "sheet/sheet.png",
+    "featureCard": {
+      "hairColor": "black",
+      "hairStyle": "short and wavy",
+      "skinTone": "medium",
+      "eyes": "dark brown",
+      "notableFeatures": [
+        "thick eyebrows"
+      ]
+    },
+    "costUsd": 0.14340150000000002
+  },
+  "scenes": [
+    {
+      "scene": "front",
+      "view": "front",
+      "box": {
+        "left": 367,
+        "top": 0,
+        "width": 500,
+        "height": 500,
+        "ratio": "1:1"
+      },
+      "sceneSize": [
+        1254,
+        1254
+      ],
+      "files": {
+        "original": "front/original.png",
+        "mask": "front/mask.png",
+        "crop": "front/crop.png",
+        "outlined": "front/outlined.png"
+      },
+      "instanceMs": {
+        "gemini-3-pro-image": 27067
+      },
+      "candidates": [
+        {
+          "scene": "front",
+          "model": "gemini-3-pro-image",
+          "n": 1,
+          "status": "error",
+          "reason": "{\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}",
+          "requestedSize": null,
+          "outputSize": null,
+          "attempts": [],
+          "aspectErrorPct": null,
+          "seamShift": null,
+          "qa": null,
+          "verdict": {
+            "pass": false,
+            "reasons": [
+              "{\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}"
+            ]
+          },
+          "costUsd": 0,
+          "genMs": 27066,
+          "files": {
+            "raw": null,
+            "composite": null,
+            "compositeCrop": null
+          }
+        }
+      ]
+    },
+    {
+      "scene": "side",
+      "view": "side",
+      "box": {
+        "left": 302,
+        "top": 0,
+        "width": 550,
+        "height": 550,
+        "ratio": "1:1"
+      },
+      "sceneSize": [
+        1254,
+        1254
+      ],
+      "files": {
+        "original": "side/original.png",
+        "mask": "side/mask.png",
+        "crop": "side/crop.png",
+        "outlined": "side/outlined.png"
+      },
+      "instanceMs": {
+        "gemini-3-pro-image": 24616
+      },
+      "candidates": [
+        {
+          "scene": "side",
+          "model": "gemini-3-pro-image",
+          "n": 1,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            1024,
+            1024
+          ],
+          "attempts": [
+            {
+              "size": "1K",
+              "width": 1024,
+              "height": 1024,
+              "accepted": true,
+              "costUsd": 0.141962,
+              "ms": 24615
+            }
+          ],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            -5.001729580249673,
+            -4.702529194741459,
+            -10.01314707959881
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4975890412682624,
+            "seamDelta": 7.030020784184459,
+            "seamDeltaBaseline": 14.946029349286174,
+            "sharpnessRatio": 2.8269623343682424,
+            "sharpnessBaseline": 2.5728063495274824,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 10,
+              "styleMatch": 9,
+              "overall": 9,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The character's features are accurately translated to the side profile while perfectly matching the original art style."
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": true,
+            "reasons": []
+          },
+          "costUsd": 0.1464505,
+          "genMs": 24615,
+          "files": {
+            "raw": "side/gemini-3-pro-image/1/raw.png",
+            "composite": "side/gemini-3-pro-image/1/composite.png",
+            "compositeCrop": "side/gemini-3-pro-image/1/composite-crop.png"
+          }
+        }
+      ]
+    },
+    {
+      "scene": "back",
+      "view": "back",
+      "box": {
+        "left": 379,
+        "top": 0,
+        "width": 491,
+        "height": 491,
+        "ratio": "1:1"
+      },
+      "sceneSize": [
+        1254,
+        1254
+      ],
+      "files": {
+        "original": "back/original.png",
+        "mask": "back/mask.png",
+        "crop": "back/crop.png",
+        "outlined": "back/outlined.png"
+      },
+      "instanceMs": {
+        "gemini-3-pro-image": 57614
+      },
+      "candidates": [
+        {
+          "scene": "back",
+          "model": "gemini-3-pro-image",
+          "n": 1,
+          "status": "ok",
+          "reason": null,
+          "requestedSize": "1K",
+          "outputSize": [
+            1024,
+            1024
+          ],
+          "attempts": [
+            {
+              "size": "1K",
+              "width": 1024,
+              "height": 1024,
+              "accepted": true,
+              "costUsd": 0.141516,
+              "ms": 57614
+            }
+          ],
+          "aspectErrorPct": 0,
+          "seamShift": [
+            7.207364089504495,
+            0.674108459747714,
+            -8.441869771901253
+          ],
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.39586777740788,
+            "seamDelta": 5.679403251372279,
+            "seamDeltaBaseline": 12.050347732150257,
+            "sharpnessRatio": 6.314064998765762,
+            "sharpnessBaseline": 4.967660789534462,
+            "vision": {
+              "likeness": 10,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 10,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The hair color and style perfectly match the character sheet while maintaining the original art style."
+            },
+            "visionError": null
+          },
+          "verdict": {
+            "pass": true,
+            "reasons": []
+          },
+          "costUsd": 0.1451375,
+          "genMs": 57614,
+          "files": {
+            "raw": "back/gemini-3-pro-image/1/raw.png",
+            "composite": "back/gemini-3-pro-image/1/composite.png",
+            "compositeCrop": "back/gemini-3-pro-image/1/composite-crop.png"
+          }
+        }
+      ]
+    }
+  ],
+  "totals": [
+    {
+      "model": "gemini-3-pro-image",
+      "candidates": 3,
+      "passed": 2,
+      "rejected": 0,
+      "errors": 1,
+      "costUsd": 0.291588,
+      "avgInstanceMs": 36432.333333333336,
+      "avg": {
+        "edgeSsim": 0.44672840933807123,
+        "seamDelta": 6.354712017778369,
+        "sharpnessRatio": 4.5705136665670025,
+        "visionOverall": 9.5,
+        "likeness": 9.5,
+        "styleMatch": 9.5
+      }
+    }
+  ],
+  "totalCostUsd": 0.43498950000000003,
+  "thresholds": {
+    "edgeSsimMin": 0.3,
+    "seamDeltaMax": 25,
+    "sharpnessRatioMin": 0.5,
+    "visionScoreMin": 7,
+    "maxAutoRetries": 2
+  }
+}

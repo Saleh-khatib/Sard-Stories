@@ -1,0 +1,66 @@
+{
+  "id": "2026-11-14T15-20-29-102Z",
+  "createdAt": "2026-11-14T15:20:29.106Z",
+  "options": {
+    "mode": "enhance",
+    "model": "gemini-3.1-flash-image",
+    "ratio": "auto",
+    "size": "1K",
+    "versions": 2,
+    "prompt": "",
+    "improvePrompt": false
+  },
+  "state": "done",
+  "jobs": [
+    {
+      "id": "j1",
+      "name": "front.png",
+      "refs": [
+        "2026-11-14T15-20-29-102Z/j1/ref-1.png"
+      ],
+      "refSizes": [
+        [
+          1254,
+          1254
+        ]
+      ],
+      "state": "done",
+      "finalPrompt": "Upscale and enhance this image to the highest possible resolution and sharpness. Keep the composition, every object, every face, all colours, all text and the art style exactly as they are: do not add, remove, move or restyle anything. Reconstruct fine detail (line work, textures, hair, fabric, foliage) cleanly and crisply, with no blur, no noise, no compression artifacts, no watermark and no border.",
+      "versions": [
+        {
+          "n": 1,
+          "file": "2026-11-14T15-20-29-102Z/j1/v1.png",
+          "width": 1024,
+          "height": 1024,
+          "costUsd": 0.067804,
+          "ms": 157187,
+          "structureMatch": 0.9152476612502229,
+          "sharpnessGain": 1.0112184400237567,
+          "aspectErrorPct": 0,
+          "warnings": [
+            "output 1024x1024 is smaller than the input 1254x1254"
+          ],
+          "error": null
+        },
+        {
+          "n": 2,
+          "file": "2026-11-14T15-20-29-102Z/j1/v2.png",
+          "width": 1024,
+          "height": 1024,
+          "costUsd": 0.067804,
+          "ms": 85970,
+          "structureMatch": 0.9079860382185527,
+          "sharpnessGain": 1.0284447581646452,
+          "aspectErrorPct": 0,
+          "warnings": [
+            "output 1024x1024 is smaller than the input 1254x1254"
+          ],
+          "error": null
+        }
+      ],
+      "selected": null,
+      "error": null
+    }
+  ],
+  "totalCostUsd": 0.135608
+}
