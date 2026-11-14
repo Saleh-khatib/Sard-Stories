@@ -1,11 +1,11 @@
 {
-  "version": 1,
+  "version": 2,
   "connection": {
     "project": "",
     "location": "global"
   },
   "models": {
-    "sceneEdit": "gemini-3-pro-image",
+    "sceneEdit": "gemini-3.1-flash-image",
     "characterSheet": "gemini-3-pro-image",
     "visionJudge": "gemini-3-flash-preview",
     "featureCard": "gemini-3-flash-preview",
@@ -50,8 +50,8 @@
     "temperature": 0.2,
     "topP": 0.95,
     "seed": null,
-    "candidates": 3,
-    "concurrency": 4,
+    "candidates": 2,
+    "concurrency": 2,
     "sizeRule": {
       "maxLongSideFor1K": 1024,
       "maxLongSideFor2K": 2048
@@ -63,8 +63,8 @@
     "maxAspectErrorPct": 3,
     "maxInlineBytes": 7000000,
     "retry": {
-      "maxTries": 3,
-      "baseDelayMs": 2000
+      "maxTries": 5,
+      "baseDelayMs": 8000
     }
   },
   "masking": {
@@ -78,10 +78,10 @@
     "qaMaxSidePx": 1024
   },
   "qa": {
-    "edgeSsimMin": 0.3,
-    "seamDeltaMax": 25,
-    "sharpnessRatioMin": 0.5,
-    "visionScoreMin": 7,
+    "edgeSsimMin": 0.4,
+    "seamDeltaMax": 16,
+    "sharpnessRatioMin": 2,
+    "visionScoreMin": 8,
     "maxAutoRetries": 2
   },
   "prompts": {

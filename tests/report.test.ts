@@ -6,7 +6,7 @@ import { M1SettingsSchema } from "../src/settings/schema";
 const qa = M1SettingsSchema.parse({}).qa;
 const goodQa = {
   outsideIdentical: true, outsideDiffBytes: 0, edgeSsim: 0.8, seamDelta: 5, seamDeltaBaseline: 3,
-  sharpnessRatio: 0.9, sharpnessBaseline: 1,
+  sharpnessRatio: 3, sharpnessBaseline: 1,
   vision: { likeness: 8, featureMatch: 8, styleMatch: 9, overall: 8, artifacts: [], extraFaces: false, pass: true, reason: "good" },
   visionError: null,
 };
@@ -17,7 +17,7 @@ describe("verdict", () => {
     const bad = judgeVerdict({ ...goodQa, outsideIdentical: false, edgeSsim: 0.1, seamDelta: 99, sharpnessRatio: 0.1, vision: null, visionError: "x" }, qa);
     expect(bad.pass).toBe(false);
     expect(bad.reasons.length).toBe(5);
-    expect(judgeVerdict({ ...goodQa, seamDelta: 60, seamDeltaBaseline: 65 }, qa).pass).toBe(true);
+    expect(judgeVerdict({ ...goodQa, seamDelta: 20 }, qa).pass).toBe(false);
   });
 });
 
