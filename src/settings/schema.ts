@@ -47,6 +47,7 @@ export const GenerationSchema = z.object({
   forceSize: z.enum(["off", ...OUTPUT_SIZES]).default("off"),
   sheetSize: OutputSizeSchema.default("1K"),
   sheetAspectRatio: z.string().default("3:2"),
+  personGeneration: z.enum(["ALLOW_ALL", "ALLOW_ADULT", "ALLOW_NONE"]).default("ALLOW_ALL"),
   maxAspectErrorPct: z.number().min(0).default(3),
   maxInlineBytes: z.number().int().default(7_000_000),
   retry: z
@@ -58,6 +59,7 @@ export const MaskingSchema = z.object({
   cropPaddingPct: z.number().min(0).default(15),
   featherPx: z.number().min(0).default(8),
   seamColorMatch: z.boolean().default(true),
+  seamMaxShift: z.number().min(0).default(40),
   seamBandPx: z.number().int().min(1).default(12),
   maskThreshold: z.number().int().min(1).max(255).default(128),
   sharpnessRingPx: z.number().int().min(1).default(64),
