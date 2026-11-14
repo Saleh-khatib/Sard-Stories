@@ -5,8 +5,8 @@ import { NextResponse } from "next/server";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const ALLOWED = ["out/m1", "test-data/scenes", "test-data/masks"];
-const TYPES: Record<string, string> = { png: "image/png", json: "application/json", html: "text/html; charset=utf-8" };
+const ALLOWED = ["out/m1", "out/studio", "test-data/scenes", "test-data/masks"];
+const TYPES: Record<string, string> = { png: "image/png", jpg: "image/jpeg", jpeg: "image/jpeg", webp: "image/webp", json: "application/json", html: "text/html; charset=utf-8" };
 
 export async function GET(_req: Request, { params }: { params: Promise<{ path: string[] }> }) {
   const { path } = await params;

@@ -12,6 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <span className="font-semibold">Sard Story Books</span>
           <nav className="flex gap-4 text-sm">
             <Link href="/m1" className="hover:underline">M1 experiment</Link>
+            <Link href="/studio" className="hover:underline">Image studio</Link>
             <Link href="/settings" className="hover:underline">Settings</Link>
           </nav>
           <span className="ml-auto text-xs text-neutral-500">M1 lab · local only</span>

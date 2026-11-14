@@ -21,7 +21,7 @@ const runId = arg("run-id") ?? new Date().toISOString().replace(/[:.]/g, "-");
 
 console.log(`run ${runId}: scenes=${scenes.join(",")} models=${models.join(",")} candidates=${settings.generation.candidates}`);
 const summary = await runM1({
-  runId, scenes, models, settings,
+  runId, scenes, models, settings, photoFile: arg("photo"),
   onStatus: (s) => console.log(`[${s.done}/${s.total}] ${s.current}`),
 });
 for (const t of summary.totals) console.log(`${t.model}: ${t.passed}/${t.candidates} passed, $${t.costUsd.toFixed(3)}, ${(t.avgInstanceMs / 1000).toFixed(1)}s/instance`);

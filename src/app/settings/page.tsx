@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Field } from "@/components/SettingsEditor";
 
 type Settings = Record<string, unknown> & { models: { prices: Record<string, unknown> }; version: number };
-const TABS = ["connection", "models", "generation", "masking", "qa", "prompts"] as const;
+const TABS = ["connection", "models", "generation", "enhance", "masking", "qa", "prompts"] as const;
 type Tab = (typeof TABS)[number];
 type CheckRow = { model: string; kind: string; ok: boolean; detail: string; ms: number; costUsd: number };
 

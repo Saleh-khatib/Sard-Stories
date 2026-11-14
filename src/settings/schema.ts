@@ -57,6 +57,14 @@ export const GenerationSchema = z.object({
     .default({ maxTries: 3, baseDelayMs: 2000 }),
 });
 
+export const EnhanceSchema = z.object({
+  model: z.string().default("gemini-3-pro-image"),
+  size: OutputSizeSchema.default("4K"),
+  candidates: z.number().int().min(1).max(4).default(1),
+  temperature: z.number().min(0).max(2).default(0.1),
+  maxAspectErrorPct: z.number().min(0).default(3),
+});
+
 export const MaskingSchema = z.object({
   cropPaddingPct: z.number().min(0).default(15),
   featherPx: z.number().min(0).default(8),
@@ -107,6 +115,16 @@ export const PromptsSchema = z.object({
     .default(
       "You are a strict art-director checking a personalised children's book illustration. Image 1 is the character sheet of the child. Image 2 is the ORIGINAL crop. Image 3 is the EDITED crop. Feature card: {feature_card}. View: {view}. Score from 1 to 10: likeness (does the head in image 3 look like the child on the sheet), featureMatch (hair colour/style, skin tone, eyes match the card), styleMatch (same art style, line weight, shading as image 2). Report artifacts (visible seams, smudges, wrong anatomy, leftover original face) and extraFaces. overall is 1-10 overall quality. pass is true only if it is usable in print. reason is one short sentence.",
     ),
+  enhance: z
+    .string()
+    .default(
+      "Upscale and enhance this image to the highest possible resolution and sharpness. Keep the composition, every object, every face, all colours, all text and the art style exactly as they are: do not add, remove, move or restyle anything. Reconstruct fine detail (line work, textures, hair, fabric, foliage) cleanly and crisply, with no blur, no noise, no compression artifacts, no watermark and no border.",
+    ),
+  improvePrompt: z
+    .string()
+    .default(
+      "Rewrite the user's idea as one detailed, specific prompt for an image generation model. Keep every requirement the user gave, add concrete visual detail (subject, setting, lighting, composition, style), and do not add text, logos or watermarks. Return JSON with a single field: prompt.",
+    ),
   styleNotes: z.string().default("soft children's picture-book illustration, clean outlines, warm colours"),
 });
 
@@ -115,6 +133,7 @@ export const M1SettingsSchema = z.object({
   connection: ConnectionSchema.default(() => ConnectionSchema.parse({})),
   models: ModelsSchema.default(() => ModelsSchema.parse({})),
   generation: GenerationSchema.default(() => GenerationSchema.parse({})),
+  enhance: EnhanceSchema.default(() => EnhanceSchema.parse({})),
   masking: MaskingSchema.default(() => MaskingSchema.parse({})),
   qa: QaSchema.default(() => QaSchema.parse({})),
   prompts: PromptsSchema.default(() => PromptsSchema.parse({})),
@@ -125,5 +144,5 @@ export type GenerationSettings = z.infer<typeof GenerationSchema>;
 export type MaskingSettings = z.infer<typeof MaskingSchema>;
 export type QaSettings = z.infer<typeof QaSchema>;
 
-export const SETTINGS_TABS = ["connection", "models", "generation", "masking", "qa", "prompts"] as const;
+export const SETTINGS_TABS = ["connection", "models", "generation", "enhance", "masking", "qa", "prompts"] as const;
 export type SettingsTab = (typeof SETTINGS_TABS)[number];

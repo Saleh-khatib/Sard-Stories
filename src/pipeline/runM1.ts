@@ -93,6 +93,7 @@ export interface RunOptions {
   settings: M1Settings;
   outRoot?: string;
   testData?: string;
+  photoFile?: string;
   onStatus?: (s: RunStatus) => void;
 }
 
@@ -144,7 +145,8 @@ export async function runM1(opts: RunOptions): Promise<RunSummary> {
   try {
     const client = makeClient(settings);
     const child = ChildInfoSchema.parse(JSON.parse(await readFile(infoPath(testData), "utf8")));
-    const photo = { data: await readFile(photoPath(testData)), mimeType: "image/jpeg" };
+    const photoFile = opts.photoFile ?? photoPath(testData);
+    const photo = { data: await readFile(photoFile), mimeType: photoFile.endsWith(".png") ? "image/png" : "image/jpeg" };
     const styleRefs = await Promise.all(opts.scenes.slice(0, 2).map((s) => readFile(paths(testData, s).scene)));
 
     const sheet = await buildCharacterSheet(client, photo, styleRefs, settings);
