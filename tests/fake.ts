@@ -64,7 +64,7 @@ export function testSettings(over: { candidates?: number; maxAutoRetries?: numbe
     ...s,
     version: 7,
     generation: { ...s.generation, candidates: over.candidates ?? 2 },
-    qa: { ...s.qa, edgeSsimMin: -1, seamDeltaMax: 1e6, sharpnessRatioMin: 0, maxAutoRetries: over.maxAutoRetries ?? 1 },
+    qa: { ...s.qa, edgeSsimMin: -1, seamDeltaMax: 1e6, sharpnessRelMin: 0, maxAutoRetries: over.maxAutoRetries ?? 1 },
   };
 }
 

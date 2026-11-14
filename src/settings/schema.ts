@@ -80,7 +80,7 @@ export const MaskingSchema = z.object({
 export const QaSchema = z.object({
   edgeSsimMin: z.number().default(0.4),
   seamDeltaMax: z.number().default(16),
-  sharpnessRatioMin: z.number().default(2),
+  sharpnessRelMin: z.number().default(0.5),
   visionScoreMin: z.number().default(8),
   maxAutoRetries: z.number().int().default(2),
 });

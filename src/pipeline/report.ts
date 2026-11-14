@@ -1,12 +1,12 @@
 import type { CandidateReport, ModelTotals, RunSummary, SceneReport } from "./runM1";
 
-const esc = (s: unknown) =>
+export const esc = (s: unknown) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const num = (v: number | null | undefined, d = 2) => (v == null || Number.isNaN(v) ? "n/a" : v.toFixed(d));
-const usd = (v: number) => `$${v.toFixed(3)}`;
-const secs = (ms: number) => `${(ms / 1000).toFixed(1)}s`;
+export const num = (v: number | null | undefined, d = 2) => (v == null || Number.isNaN(v) ? "n/a" : v.toFixed(d));
+export const usd = (v: number) => `$${v.toFixed(3)}`;
+export const secs = (ms: number) => `${(ms / 1000).toFixed(1)}s`;
 
-const CSS = `
+export const CSS = `
 :root{color-scheme:light dark;--bg:#fff7ed;--fg:#2a1a10;--mut:#6b5444;--line:#f1d9bf;--card:#ffffff;--soft:#fff0de;--ok:#15803d;--bad:#dc2626;--accent:#2563eb;--brand:#f97316}
 @media (prefers-color-scheme:dark){:root{--bg:#17110c;--fg:#f8ebdd;--mut:#c2a892;--line:#3b2b20;--card:#211812;--soft:#2c2018;--ok:#4ade80;--bad:#f87171;--accent:#60a5fa;--brand:#fb923c}}
 body{margin:0;padding:24px;background:var(--bg);color:var(--fg);font:15px/1.55 Nunito,system-ui,sans-serif}
@@ -31,7 +31,7 @@ th{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.04em
 .bad{color:var(--bad)}.ok{color:var(--ok)}
 `;
 
-const JS = `
+export const JS = `
 const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
 document.addEventListener('click',e=>{const t=e.target;
  if(t.matches('img.z,.zbtn')){lbi.src=t.dataset.full||t.src;lb.style.display='block';lb.scrollTop=0}
@@ -99,7 +99,7 @@ export function renderReport(r: RunSummary, base: string): string {
 <h1>M1 proof of concept</h1>
 <div class="mut">Run ${esc(r.runId)} · ${esc(r.createdAt)} · settings v${r.settingsVersion} · child ${esc(r.child.name)} (${esc(r.child.gender)}) · total cost ${usd(r.totalCostUsd)}</div>
 <h2>Totals per model</h2>${totalsTable(r.totals)}
-<div class="mut">Thresholds: edge SSIM ≥ ${r.thresholds.edgeSsimMin}, seam Δ ≤ ${r.thresholds.seamDeltaMax}, sharpness ≥ ${r.thresholds.sharpnessRatioMin}, vision ≥ ${r.thresholds.visionScoreMin}. Sheet cost ${usd(r.sheet.costUsd)}.</div>
+<div class="mut">Thresholds: edge SSIM ≥ ${r.thresholds.edgeSsimMin}, seam Δ ≤ ${r.thresholds.seamDeltaMax}, sharpness ≥ ${r.thresholds.sharpnessRelMin}× the original, vision ≥ ${r.thresholds.visionScoreMin}. Sheet cost ${usd(r.sheet.costUsd)}.</div>
 <h2>Character sheet</h2><div class="row"><div class="card" style="width:520px"><img class="z" src="${base}${esc(r.sheet.file)}"></div>
 <table><tr><td>Hair colour</td><td>${esc(fc.hairColor)}</td></tr><tr><td>Hair style</td><td>${esc(fc.hairStyle)}</td></tr><tr><td>Skin tone</td><td>${esc(fc.skinTone)}</td></tr><tr><td>Eyes</td><td>${esc(fc.eyes)}</td></tr><tr><td>Features</td><td>${esc(fc.notableFeatures.join(", "))}</td></tr></table></div>
 ${r.scenes.map((s) => sceneSection(s, r.models, base)).join("")}

@@ -104,7 +104,8 @@ export function judgeVerdict(qa: NonNullable<CandidateReport["qa"]>, t: M1Settin
   if (!qa.outsideIdentical) reasons.push("pixels changed outside the mask");
   if (qa.edgeSsim < t.edgeSsimMin) reasons.push(`structure changed (edge SSIM ${qa.edgeSsim.toFixed(2)} < ${t.edgeSsimMin})`);
   if (qa.seamDelta > t.seamDeltaMax) reasons.push(`visible seam (${qa.seamDelta.toFixed(1)} > ${t.seamDeltaMax})`);
-  if (qa.sharpnessRatio < t.sharpnessRatioMin) reasons.push(`soft result (sharpness ${qa.sharpnessRatio.toFixed(2)} < ${t.sharpnessRatioMin})`);
+  const rel = qa.sharpnessBaseline > 0 ? qa.sharpnessRatio / qa.sharpnessBaseline : 1;
+  if (rel < t.sharpnessRelMin) reasons.push(`soft result (${rel.toFixed(2)}x the original sharpness < ${t.sharpnessRelMin})`);
   if (!qa.vision) reasons.push(`vision judge unavailable${qa.visionError ? `: ${qa.visionError}` : ""}`);
   else {
     if (qa.vision.overall < t.visionScoreMin) reasons.push(`vision score ${qa.vision.overall} < ${t.visionScoreMin}`);

@@ -121,6 +121,7 @@ export async function processInstance(ctx: InstanceCtx, inst: InstanceDef): Prom
   const maskCrop = cropBinary(m.bin, m.width, box);
   const maskBox = binaryBBox(m.bin, m.width, m.height) as NonNullable<ReturnType<typeof binaryBBox>>;
   const origCrop = await extractPng(ctx.original, box);
+  const sharpnessBaseline = await sharpnessRatio(origCrop, maskCrop, box.width, box.height, settings.masking);
   const outlined = await outlineCrop(origCrop, maskCrop, box.width, box.height);
   const sheet = ctx.sheets[inst.ageStage] ?? ctx.sheets.child;
   if (inst.kind === "character" && !sheet) throw new Error(`No character sheet for age stage "${inst.ageStage}"`);
@@ -182,6 +183,7 @@ export async function processInstance(ctx: InstanceCtx, inst: InstanceDef): Prom
           edgeSsim: await edgeSimilarity(origCrop, compCrop, maskCrop, box.width, box.height, settings.masking),
           seamDelta: await seamDelta(compCrop, maskCrop, box.width, box.height, settings.masking),
           sharpnessRatio: await sharpnessRatio(compCrop, maskCrop, box.width, box.height, settings.masking),
+          sharpnessBaseline,
           vision,
           visionError,
           ocr,

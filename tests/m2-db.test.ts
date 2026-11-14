@@ -74,6 +74,27 @@ describe("orders", () => {
     expect(Object.values(p?.sheets ?? {}).every((s) => s?.approved === false)).toBe(true);
   });
 
+  it("lets a scene be imported again after renders exist, without losing history", async () => {
+    const db = await openMemoryDb();
+    const f = await fixture();
+    const settings = await seed(db, f);
+    const { client } = await fakeClient();
+    const root = join(f.dir, "storage");
+    await ensureSheets({ db, client, settings, orderId: "o1", autoApprove: true, root });
+    await runSceneForOrder({ db, client, settings, orderId: "o1", sceneId: "collage", root });
+    const before = (await db.select().from(sceneRenders)).length;
+    expect(before).toBeGreaterThan(0);
+    await importScene(db, { id: "collage", name: "Collage v2", originalPath: f.originalPath, width: W, height: H, instances: [
+      { id: "collage-a", kind: "character", view: "front", ageStage: "child", maskPath: f.maskA },
+      { id: "collage-b", kind: "character", view: "side", ageStage: "teen", maskPath: f.maskB },
+    ] });
+    expect((await db.select().from(sceneRenders)).length).toBe(before);
+    await importScene(db, { id: "collage", name: "Collage v3", originalPath: f.originalPath, width: W, height: H, instances: [
+      { id: "collage-a", kind: "character", view: "front", ageStage: "child", maskPath: f.maskA },
+    ] });
+    expect((await db.select().from(sceneRenders)).length).toBe(before);
+  });
+
   it("runs end to end through the Redis queue, records every render and totals the cost", async (ctx) => {
     if (!(await redisUp())) return ctx.skip();
     const db = await openMemoryDb();

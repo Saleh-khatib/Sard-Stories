@@ -37,11 +37,22 @@ describe("helpers", () => {
   });
 
   it("never lets a vision score pass art text without an exact read-back", () => {
-    const base: QaScores = { outsideIdentical: true, outsideDiffBytes: 0, edgeSsim: 0.9, seamDelta: 1, sharpnessRatio: 3, ocr: null, visionError: null, vision: { likeness: 10, featureMatch: 10, styleMatch: 10, overall: 10, artifacts: [], extraFaces: false, pass: true, reason: "perfect" } };
+    const base: QaScores = { outsideIdentical: true, outsideDiffBytes: 0, edgeSsim: 0.9, seamDelta: 1, sharpnessRatio: 3, sharpnessBaseline: 3, ocr: null, visionError: null, vision: { likeness: 10, featureMatch: 10, styleMatch: 10, overall: 10, artifacts: [], extraFaces: false, pass: true, reason: "perfect" } };
     const t = M1SettingsSchema.parse({}).qa;
     expect(verdictFor("art_text", base, t).pass).toBe(false);
     expect(verdictFor("art_text", { ...base, ocr: { expected: "OMAR 10", exact: false, reads: [{ model: "m", text: "OMAR 1O", error: null }] } }, t).pass).toBe(false);
     expect(verdictFor("art_text", { ...base, ocr: { expected: "OMAR 10", exact: true, reads: [{ model: "m", text: "OMAR 10", error: null }] } }, t).pass).toBe(true);
+  });
+});
+
+describe("sharpness is judged against the original region", () => {
+  const t = M1SettingsSchema.parse({}).qa;
+  const ok: QaScores = { outsideIdentical: true, outsideDiffBytes: 0, edgeSsim: 0.9, seamDelta: 1, sharpnessRatio: 1.2, sharpnessBaseline: 1.56, visionError: null, ocr: null, vision: { likeness: 9, featureMatch: 9, styleMatch: 9, overall: 9, artifacts: [], extraFaces: false, pass: true, reason: "good" } };
+  it("accepts a naturally smooth scene (stadium crowd) and rejects a result much softer than the original", () => {
+    expect(verdictFor("character", ok, t).pass).toBe(true);
+    const soft = verdictFor("character", { ...ok, sharpnessRatio: 0.2 }, t);
+    expect(soft.pass).toBe(false);
+    expect(soft.reasons.join()).toContain("soft result");
   });
 });
 

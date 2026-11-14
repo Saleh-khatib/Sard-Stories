@@ -34,9 +34,16 @@ export interface SceneInput {
 
 export async function importScene(db: Db, input: SceneInput): Promise<void> {
   await db.insert(scenes).values({ id: input.id, name: input.name, originalPath: input.originalPath, width: input.width, height: input.height, createdAt: new Date().toISOString() }).onConflictDoUpdate({ target: scenes.id, set: { name: input.name, originalPath: input.originalPath, width: input.width, height: input.height } });
-  await db.delete(instances).where(eq(instances.sceneId, input.id));
+  // Instances are updated in place: recorded renders point at them, and history is never deleted.
   for (const [i, inst] of input.instances.entries()) {
-    await db.insert(instances).values({ id: inst.id, sceneId: input.id, kind: inst.kind, slotKey: inst.slotKey ?? "hero", ageStage: inst.ageStage ?? "child", view: inst.view ?? "front", maskPath: inst.maskPath, originalWords: inst.originalWords ?? null, newWordsTemplate: inst.newWordsTemplate ?? null, sortOrder: i });
+    const row = { sceneId: input.id, kind: inst.kind, slotKey: inst.slotKey ?? "hero", ageStage: inst.ageStage ?? "child", view: inst.view ?? "front", maskPath: inst.maskPath, originalWords: inst.originalWords ?? null, newWordsTemplate: inst.newWordsTemplate ?? null, sortOrder: i };
+    await db.insert(instances).values({ id: inst.id, ...row }).onConflictDoUpdate({ target: instances.id, set: row });
+  }
+  const keep = new Set(input.instances.map((i) => i.id));
+  for (const old of await db.select().from(instances).where(eq(instances.sceneId, input.id))) {
+    if (keep.has(old.id)) continue;
+    const used = await db.select({ id: sceneRenders.id }).from(sceneRenders).where(eq(sceneRenders.instanceId, old.id)).limit(1);
+    if (used.length === 0) await db.delete(instances).where(eq(instances.id, old.id));
   }
 }
 

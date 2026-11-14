@@ -1,0 +1,1374 @@
+{
+  "order": {
+    "id": "m2-2026-11-14T15-56-11-112Z",
+    "name": "M2 acceptance",
+    "status": "flagged",
+    "settingsVersion": 1,
+    "estCost": 0,
+    "actualCost": 1.5912169999999999,
+    "createdAt": "2026-11-14T15:56:11.112Z"
+  },
+  "child": {
+    "name": "Saleh",
+    "gender": "boy",
+    "featureCard": {
+      "hairColor": "black",
+      "hairStyle": "short and wavy",
+      "skinTone": "medium",
+      "eyes": "dark brown",
+      "notableFeatures": [
+        "thick eyebrows"
+      ]
+    },
+    "sheets": {
+      "child": {
+        "path": "storage/orders/m2-2026-11-14T15-56-11-112Z/sheets/child.png",
+        "approved": true,
+        "costUsd": 0.1416335
+      },
+      "teen": {
+        "path": "storage/orders/m2-2026-11-14T15-56-11-112Z/sheets/teen.png",
+        "approved": true,
+        "costUsd": 0.1389
+      },
+      "adult": {
+        "path": "storage/orders/m2-2026-11-14T15-56-11-112Z/sheets/adult.png",
+        "approved": true,
+        "costUsd": 0.139392
+      }
+    }
+  },
+  "results": [
+    {
+      "id": 1,
+      "orderId": "m2-2026-11-14T15-56-11-112Z",
+      "sceneId": "collage",
+      "status": "flagged",
+      "path": "storage/orders/m2-2026-11-14T15-56-11-112Z/scenes/collage.png",
+      "flaggedInstances": [
+        {
+          "instanceId": "teen-side",
+          "reason": "judge: A leftover brown hair strand from the original image is visible in front of the forehead."
+        },
+        {
+          "instanceId": "adult-back",
+          "reason": "soft result (sharpness 1.22 < 2)"
+        },
+        {
+          "instanceId": "jersey",
+          "reason": "soft result (sharpness 1.83 < 2)"
+        }
+      ],
+      "costUsd": 1.1712915,
+      "outsideUnionIdentical": true,
+      "createdAt": "2026-11-14T16:12:41.595Z"
+    }
+  ],
+  "instances": [
+    {
+      "id": "child-front",
+      "sceneId": "collage",
+      "kind": "character",
+      "ageStage": "child",
+      "view": "front",
+      "originalWords": null,
+      "expected": null,
+      "renders": [
+        {
+          "id": 7,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "child-front",
+          "version": 1,
+          "candidate": 1,
+          "status": "ok",
+          "qaReason": null,
+          "outputSize": "1024x1024",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/child-front/v1-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/child-front/v1-c1/composite-crop.png",
+          "costUsd": 0.07240049999999999,
+          "ms": 142850,
+          "selected": true,
+          "inputs": {
+            "kind": "character",
+            "view": "front",
+            "ageStage": "child",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 99,
+              "top": 0,
+              "width": 688,
+              "height": 688,
+              "ratio": "1:1"
+            },
+            "cropSha": "0a4308024986",
+            "sheetSha": "fa3f06d69eb8",
+            "promptSha": "65adb7132c35",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the child from the sheet, seen from the FRONT, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin: medium. Eyes: dark brown. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a young child.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 1024,
+                "height": 1024,
+                "accepted": true,
+                "costUsd": 0.068977,
+                "ms": 46602
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:65adb7132c35",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:03:01.431Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.5054023235844501,
+            "seamDelta": 5.92222721363236,
+            "sharpnessRatio": 2.958503987231462,
+            "vision": {
+              "likeness": 10,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 10,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The edited face perfectly matches the character sheet and integrates seamlessly with the original style."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 8,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "child-front",
+          "version": 1,
+          "candidate": 2,
+          "status": "error",
+          "qaReason": "{\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}",
+          "outputSize": null,
+          "outputPath": null,
+          "compositePath": null,
+          "costUsd": 0,
+          "ms": 298048,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "front",
+            "ageStage": "child",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": null,
+            "cropBox": {
+              "left": 99,
+              "top": 0,
+              "width": 688,
+              "height": 688,
+              "ratio": "1:1"
+            },
+            "cropSha": "0a4308024986",
+            "sheetSha": "fa3f06d69eb8",
+            "promptSha": "65adb7132c35",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the child from the sheet, seen from the FRONT, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin: medium. Eyes: dark brown. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a young child.",
+            "attempts": [],
+            "expectedText": null
+          },
+          "promptVersion": "1:65adb7132c35",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:03:01.433Z",
+          "qa": null
+        }
+      ],
+      "selectedId": 7,
+      "costUsd": 0.07240049999999999
+    },
+    {
+      "id": "teen-side",
+      "sceneId": "collage",
+      "kind": "character",
+      "ageStage": "teen",
+      "view": "side",
+      "originalWords": null,
+      "expected": null,
+      "renders": [
+        {
+          "id": 1,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "teen-side",
+          "version": 1,
+          "candidate": 1,
+          "status": "failed_qa",
+          "qaReason": "judge: The edit is high quality but contains floating brown hair artifacts in front of the face that need removal.",
+          "outputSize": "1024x1024",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v1-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v1-c1/composite-crop.png",
+          "costUsd": 0.0731015,
+          "ms": 9197,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "side",
+            "ageStage": "teen",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1046,
+              "top": 83,
+              "width": 499,
+              "height": 499,
+              "ratio": "1:1"
+            },
+            "cropSha": "91e7cf549c57",
+            "sheetSha": "cd2799e6e9b3",
+            "promptSha": "d1e7ee6731bc",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the child from the sheet, seen in PROFILE facing the same direction as the original, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin: medium. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a teenager, so give the head the proportions of a teenager.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 1024,
+                "height": 1024,
+                "accepted": true,
+                "costUsd": 0.068982,
+                "ms": 9197
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:d1e7ee6731bc",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:02:51.069Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.448903004228522,
+            "seamDelta": 5.595884369171703,
+            "sharpnessRatio": 3.319693326786527,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 8,
+              "artifacts": [
+                "floating brown hair strands in front of the face",
+                "leftover brown hair color near the forehead"
+              ],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "The edit is high quality but contains floating brown hair artifacts in front of the face that need removal."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 2,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "teen-side",
+          "version": 1,
+          "candidate": 2,
+          "status": "failed_qa",
+          "qaReason": "judge: A leftover brown hair strand from the original image is visible in front of the forehead.",
+          "outputSize": "1024x1024",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v1-c2/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v1-c2/composite-crop.png",
+          "costUsd": 0.07295750000000001,
+          "ms": 11135,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "side",
+            "ageStage": "teen",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1046,
+              "top": 83,
+              "width": 499,
+              "height": 499,
+              "ratio": "1:1"
+            },
+            "cropSha": "91e7cf549c57",
+            "sheetSha": "cd2799e6e9b3",
+            "promptSha": "d1e7ee6731bc",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the child from the sheet, seen in PROFILE facing the same direction as the original, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin: medium. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a teenager, so give the head the proportions of a teenager.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 1024,
+                "height": 1024,
+                "accepted": true,
+                "costUsd": 0.068982,
+                "ms": 11135
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:d1e7ee6731bc",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:02:51.071Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.5111971600217989,
+            "seamDelta": 3.933501812536826,
+            "sharpnessRatio": 3.289237041476335,
+            "vision": {
+              "likeness": 10,
+              "featureMatch": 10,
+              "styleMatch": 8,
+              "overall": 8,
+              "artifacts": [
+                "leftover brown hair strand from the original image visible in front of the forehead"
+              ],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "A leftover brown hair strand from the original image is visible in front of the forehead."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 11,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "teen-side",
+          "version": 2,
+          "candidate": 1,
+          "status": "failed_qa",
+          "qaReason": "vision score 6 < 8; judge: The edit contains floating brown hair strands from the original image in front of the face.",
+          "outputSize": "1024x1024",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v2-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v2-c1/composite-crop.png",
+          "costUsd": 0.0739725,
+          "ms": 19898,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "side",
+            "ageStage": "teen",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1046,
+              "top": 83,
+              "width": 499,
+              "height": 499,
+              "ratio": "1:1"
+            },
+            "cropSha": "91e7cf549c57",
+            "sheetSha": "cd2799e6e9b3",
+            "promptSha": "0f393f47dda4",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the child from the sheet, seen in PROFILE facing the same direction as the original, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin: medium. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a teenager, so give the head the proportions of a teenager.\nFix these problems from the previous attempt: judge: The edit is high quality but contains floating brown hair artifacts in front of the face that need removal.; judge: A leftover brown hair strand from the original image is visible in front of the forehead..",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 1024,
+                "height": 1024,
+                "accepted": true,
+                "costUsd": 0.069007,
+                "ms": 12549
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:0f393f47dda4",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:06:28.872Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4324205613634307,
+            "seamDelta": 3.6022020360489933,
+            "sharpnessRatio": 3.522132244041376,
+            "vision": {
+              "likeness": 10,
+              "featureMatch": 10,
+              "styleMatch": 9,
+              "overall": 6,
+              "artifacts": [
+                "floating brown hair strands in front of the face"
+              ],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "The edit contains floating brown hair strands from the original image in front of the face."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 12,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "teen-side",
+          "version": 2,
+          "candidate": 2,
+          "status": "error",
+          "qaReason": "{\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}",
+          "outputSize": null,
+          "outputPath": null,
+          "compositePath": null,
+          "costUsd": 0,
+          "ms": 162767,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "side",
+            "ageStage": "teen",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": null,
+            "cropBox": {
+              "left": 1046,
+              "top": 83,
+              "width": 499,
+              "height": 499,
+              "ratio": "1:1"
+            },
+            "cropSha": "91e7cf549c57",
+            "sheetSha": "cd2799e6e9b3",
+            "promptSha": "0f393f47dda4",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the child from the sheet, seen in PROFILE facing the same direction as the original, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin: medium. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a teenager, so give the head the proportions of a teenager.\nFix these problems from the previous attempt: judge: The edit is high quality but contains floating brown hair artifacts in front of the face that need removal.; judge: A leftover brown hair strand from the original image is visible in front of the forehead..",
+            "attempts": [],
+            "expectedText": null
+          },
+          "promptVersion": "1:0f393f47dda4",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:06:28.873Z",
+          "qa": null
+        },
+        {
+          "id": 17,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "teen-side",
+          "version": 3,
+          "candidate": 1,
+          "status": "failed_qa",
+          "qaReason": "judge: There are visible leftover brown hair artifacts in front of the forehead that do not match the new hair color.",
+          "outputSize": "1024x1024",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v3-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v3-c1/composite-crop.png",
+          "costUsd": 0.073295,
+          "ms": 177522,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "side",
+            "ageStage": "teen",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1046,
+              "top": 83,
+              "width": 499,
+              "height": 499,
+              "ratio": "1:1"
+            },
+            "cropSha": "91e7cf549c57",
+            "sheetSha": "cd2799e6e9b3",
+            "promptSha": "4f9d717a0ab9",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the child from the sheet, seen in PROFILE facing the same direction as the original, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin: medium. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a teenager, so give the head the proportions of a teenager.\nFix these problems from the previous attempt: vision score 6 < 8; judge: The edit contains floating brown hair strands from the original image in front of the face.; {\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 1024,
+                "height": 1024,
+                "accepted": true,
+                "costUsd": 0.0690315,
+                "ms": 86169
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:4f9d717a0ab9",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:11:19.719Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4768059791263782,
+            "seamDelta": 5.62175196396741,
+            "sharpnessRatio": 3.3208487328780096,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 10,
+              "styleMatch": 9,
+              "overall": 8,
+              "artifacts": [
+                "leftover brown hair strands floating in front of the forehead"
+              ],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "There are visible leftover brown hair artifacts in front of the forehead that do not match the new hair color."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 18,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "teen-side",
+          "version": 3,
+          "candidate": 2,
+          "status": "failed_qa",
+          "qaReason": "vision score 7 < 8; judge: A floating brown hair artifact is visible in front of the character's forehead.",
+          "outputSize": "1024x1024",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v3-c2/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/teen-side/v3-c2/composite-crop.png",
+          "costUsd": 0.072185,
+          "ms": 268264,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "side",
+            "ageStage": "teen",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1046,
+              "top": 83,
+              "width": 499,
+              "height": 499,
+              "ratio": "1:1"
+            },
+            "cropSha": "91e7cf549c57",
+            "sheetSha": "cd2799e6e9b3",
+            "promptSha": "4f9d717a0ab9",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the child from the sheet, seen in PROFILE facing the same direction as the original, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin: medium. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a teenager, so give the head the proportions of a teenager.\nFix these problems from the previous attempt: vision score 6 < 8; judge: The edit contains floating brown hair strands from the original image in front of the face.; {\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 1024,
+                "height": 1024,
+                "accepted": true,
+                "costUsd": 0.0690315,
+                "ms": 90742
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:4f9d717a0ab9",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:11:19.724Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.504301809822683,
+            "seamDelta": 3.8976830834225726,
+            "sharpnessRatio": 3.0564255609114,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 7,
+              "artifacts": [
+                "floating brown hair strand in front of forehead"
+              ],
+              "extraFaces": false,
+              "pass": false,
+              "reason": "A floating brown hair artifact is visible in front of the character's forehead."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        }
+      ],
+      "selectedId": null,
+      "costUsd": 0.3655115
+    },
+    {
+      "id": "adult-back",
+      "sceneId": "collage",
+      "kind": "character",
+      "ageStage": "adult",
+      "view": "back",
+      "originalWords": null,
+      "expected": null,
+      "renders": [
+        {
+          "id": 5,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "adult-back",
+          "version": 1,
+          "candidate": 1,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.16 < 2)",
+          "outputSize": "928x1152",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v1-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v1-c1/composite-crop.png",
+          "costUsd": 0.07227499999999999,
+          "ms": 189752,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1740,
+              "top": 0,
+              "width": 692,
+              "height": 865,
+              "ratio": "4:5"
+            },
+            "cropSha": "a853a267ef42",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "163a68e777ed",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the back of the child's head from the sheet, seen from BEHIND, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin tone of the neck: medium. No face may be visible. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a grown adult, so give the head and neck adult proportions.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 928,
+                "height": 1152,
+                "accepted": true,
+                "costUsd": 0.0689875,
+                "ms": 24093
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:163a68e777ed",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:02:58.573Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.49380049082191557,
+            "seamDelta": 0.754556112499347,
+            "sharpnessRatio": 1.1592203932658043,
+            "vision": {
+              "likeness": 10,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 10,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The hair color was perfectly updated to black to match the character sheet while maintaining the original watercolor style."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 6,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "adult-back",
+          "version": 1,
+          "candidate": 2,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.13 < 2)",
+          "outputSize": "928x1152",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v1-c2/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v1-c2/composite-crop.png",
+          "costUsd": 0.072404,
+          "ms": 288911,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1740,
+              "top": 0,
+              "width": 692,
+              "height": 865,
+              "ratio": "4:5"
+            },
+            "cropSha": "a853a267ef42",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "163a68e777ed",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the back of the child's head from the sheet, seen from BEHIND, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin tone of the neck: medium. No face may be visible. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a grown adult, so give the head and neck adult proportions.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 928,
+                "height": 1152,
+                "accepted": true,
+                "costUsd": 0.0689875,
+                "ms": 99159
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:163a68e777ed",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:02:58.576Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4895434287721959,
+            "seamDelta": 0.5745693505811227,
+            "sharpnessRatio": 1.1322961500818614,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 9,
+              "styleMatch": 10,
+              "overall": 9,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The hair color was successfully updated to black, matching the character sheet perfectly while maintaining the original style."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 13,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "adult-back",
+          "version": 2,
+          "candidate": 1,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.25 < 2)",
+          "outputSize": "928x1152",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v2-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v2-c1/composite-crop.png",
+          "costUsd": 0.07219149999999999,
+          "ms": 301650,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1740,
+              "top": 0,
+              "width": 692,
+              "height": 865,
+              "ratio": "4:5"
+            },
+            "cropSha": "a853a267ef42",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "5f1e58ad3f4f",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the back of the child's head from the sheet, seen from BEHIND, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin tone of the neck: medium. No face may be visible. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a grown adult, so give the head and neck adult proportions.\nFix these problems from the previous attempt: soft result (sharpness 1.16 < 2); soft result (sharpness 1.13 < 2).",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 928,
+                "height": 1152,
+                "accepted": true,
+                "costUsd": 0.069006,
+                "ms": 159708
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:5f1e58ad3f4f",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:09:40.434Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4706050432976267,
+            "seamDelta": 0.35456544773578846,
+            "sharpnessRatio": 1.2468665778368802,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 9.5,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The hair color was accurately updated to black while perfectly preserving the watercolor style and texture."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 14,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "adult-back",
+          "version": 2,
+          "candidate": 2,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.24 < 2)",
+          "outputSize": "928x1152",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v2-c2/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v2-c2/composite-crop.png",
+          "costUsd": 0.07234449999999999,
+          "ms": 184740,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1740,
+              "top": 0,
+              "width": 692,
+              "height": 865,
+              "ratio": "4:5"
+            },
+            "cropSha": "a853a267ef42",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "5f1e58ad3f4f",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the back of the child's head from the sheet, seen from BEHIND, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin tone of the neck: medium. No face may be visible. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a grown adult, so give the head and neck adult proportions.\nFix these problems from the previous attempt: soft result (sharpness 1.16 < 2); soft result (sharpness 1.13 < 2).",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 928,
+                "height": 1152,
+                "accepted": true,
+                "costUsd": 0.069006,
+                "ms": 29478
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:5f1e58ad3f4f",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:09:40.439Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.4739797543026294,
+            "seamDelta": 0.5538394578275652,
+            "sharpnessRatio": 1.2363263359675087,
+            "vision": {
+              "likeness": 9,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 9.5,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The hair color was correctly updated to black, matching the character sheet while perfectly preserving the original art style."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 19,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "adult-back",
+          "version": 3,
+          "candidate": 1,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.45 < 2)",
+          "outputSize": "928x1152",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v3-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v3-c1/composite-crop.png",
+          "costUsd": 0.0720715,
+          "ms": 15187,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1740,
+              "top": 0,
+              "width": 692,
+              "height": 865,
+              "ratio": "4:5"
+            },
+            "cropSha": "a853a267ef42",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "01e8e10524e3",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the back of the child's head from the sheet, seen from BEHIND, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin tone of the neck: medium. No face may be visible. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a grown adult, so give the head and neck adult proportions.\nFix these problems from the previous attempt: soft result (sharpness 1.25 < 2); soft result (sharpness 1.24 < 2).",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 928,
+                "height": 1152,
+                "accepted": true,
+                "costUsd": 0.069006,
+                "ms": 8778
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:01e8e10524e3",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:12:41.044Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.45554367309081023,
+            "seamDelta": 0.5931129094795173,
+            "sharpnessRatio": 1.44587027725211,
+            "vision": {
+              "likeness": 10,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 10,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The hair color was successfully changed to black, matching the character sheet perfectly while preserving the original art style."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        },
+        {
+          "id": 20,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "adult-back",
+          "version": 3,
+          "candidate": 2,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.22 < 2)",
+          "outputSize": "928x1152",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v3-c2/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/adult-back/v3-c2/composite-crop.png",
+          "costUsd": 0.0735865,
+          "ms": 171017,
+          "selected": false,
+          "inputs": {
+            "kind": "character",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1740,
+              "top": 0,
+              "width": 692,
+              "height": 865,
+              "ratio": "4:5"
+            },
+            "cropSha": "a853a267ef42",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "01e8e10524e3",
+            "prompt": "Image 1 is an illustration crop. Image 2 is the same crop with the area to edit outlined in red. Image 3 is the character sheet of the new child (Saleh, boy). Replace the hero's head and neck inside the red outline with the back of the child's head from the sheet, seen from BEHIND, in exactly the same art style, line weight, shading and lighting. Hair: black, short and wavy. Skin tone of the neck: medium. No face may be visible. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear anywhere in your output. The original character's brown hair must be removed completely: no strand of the old hair may remain, and wherever the old hair or head was but the new head does not cover it, paint the surrounding background (sky, leaves, trees) so it continues naturally. Do not add extra faces or text.\nThe hero is a grown adult, so give the head and neck adult proportions.\nFix these problems from the previous attempt: soft result (sharpness 1.25 < 2); soft result (sharpness 1.24 < 2).",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 928,
+                "height": 1152,
+                "accepted": true,
+                "costUsd": 0.069006,
+                "ms": 155830
+              }
+            ],
+            "expectedText": null
+          },
+          "promptVersion": "1:01e8e10524e3",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:12:41.048Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.5126348899493458,
+            "seamDelta": 0.6882018477159999,
+            "sharpnessRatio": 1.2156539083679978,
+            "vision": {
+              "likeness": 10,
+              "featureMatch": 10,
+              "styleMatch": 10,
+              "overall": 10,
+              "artifacts": [],
+              "extraFaces": false,
+              "pass": true,
+              "reason": "The hair color was correctly changed to black, perfectly matching the character sheet and maintaining the watercolor style."
+            },
+            "visionError": null,
+            "ocr": null
+          }
+        }
+      ],
+      "selectedId": null,
+      "costUsd": 0.434873
+    },
+    {
+      "id": "jersey",
+      "sceneId": "collage",
+      "kind": "art_text",
+      "ageStage": "adult",
+      "view": "back",
+      "originalWords": "ALI 7",
+      "expected": "SALEH 7",
+      "renders": [
+        {
+          "id": 3,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "jersey",
+          "version": 1,
+          "candidate": 1,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.67 < 2)",
+          "outputSize": "768x1376",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/jersey/v1-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/jersey/v1-c1/composite-crop.png",
+          "costUsd": 0.0741355,
+          "ms": 96252,
+          "selected": false,
+          "inputs": {
+            "kind": "art_text",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1883,
+              "top": 640,
+              "width": 432,
+              "height": 768,
+              "ratio": "9:16"
+            },
+            "cropSha": "61e9ede2e651",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "e3e4b09cf233",
+            "prompt": "Image 1 is an illustration crop that contains the words \"ALI 7\" inside the area outlined in red in image 2. Re-letter ONLY those words so they read exactly \"SALEH 7\", letter for letter and digit for digit, in capitals if the original is in capitals. Keep the same font, letter height, colour, outline, perspective, fabric folds, shadows and lighting. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear in your output. Do not add or remove any other text.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 768,
+                "height": 1376,
+                "accepted": true,
+                "costUsd": 0.0683785,
+                "ms": 87106
+              }
+            ],
+            "expectedText": "SALEH 7"
+          },
+          "promptVersion": "1:e3e4b09cf233",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:02:52.704Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.7097232175367727,
+            "seamDelta": 0.8739967780666195,
+            "sharpnessRatio": 1.665979836688668,
+            "vision": null,
+            "visionError": null,
+            "ocr": {
+              "expected": "SALEH 7",
+              "exact": true,
+              "reads": [
+                {
+                  "model": "gemini-3-flash-preview",
+                  "text": "SALEH 7",
+                  "error": null
+                },
+                {
+                  "model": "gemini-3.1-pro-preview",
+                  "text": "SALEH\n7",
+                  "error": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 4,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "jersey",
+          "version": 1,
+          "candidate": 2,
+          "status": "error",
+          "qaReason": "{\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}",
+          "outputSize": null,
+          "outputPath": null,
+          "compositePath": null,
+          "costUsd": 0,
+          "ms": 165691,
+          "selected": false,
+          "inputs": {
+            "kind": "art_text",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": null,
+            "cropBox": {
+              "left": 1883,
+              "top": 640,
+              "width": 432,
+              "height": 768,
+              "ratio": "9:16"
+            },
+            "cropSha": "61e9ede2e651",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "e3e4b09cf233",
+            "prompt": "Image 1 is an illustration crop that contains the words \"ALI 7\" inside the area outlined in red in image 2. Re-letter ONLY those words so they read exactly \"SALEH 7\", letter for letter and digit for digit, in capitals if the original is in capitals. Keep the same font, letter height, colour, outline, perspective, fabric folds, shadows and lighting. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear in your output. Do not add or remove any other text.",
+            "attempts": [],
+            "expectedText": "SALEH 7"
+          },
+          "promptVersion": "1:e3e4b09cf233",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:02:52.706Z",
+          "qa": null
+        },
+        {
+          "id": 9,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "jersey",
+          "version": 2,
+          "candidate": 1,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.73 < 2)",
+          "outputSize": "768x1376",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/jersey/v2-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/jersey/v2-c1/composite-crop.png",
+          "costUsd": 0.07536949999999999,
+          "ms": 62771,
+          "selected": false,
+          "inputs": {
+            "kind": "art_text",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1883,
+              "top": 640,
+              "width": 432,
+              "height": 768,
+              "ratio": "9:16"
+            },
+            "cropSha": "61e9ede2e651",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "5073c5808297",
+            "prompt": "Image 1 is an illustration crop that contains the words \"ALI 7\" inside the area outlined in red in image 2. Re-letter ONLY those words so they read exactly \"SALEH 7\", letter for letter and digit for digit, in capitals if the original is in capitals. Keep the same font, letter height, colour, outline, perspective, fabric folds, shadows and lighting. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear in your output. Do not add or remove any other text.\nFix these problems from the previous attempt: soft result (sharpness 1.67 < 2); {\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 768,
+                "height": 1376,
+                "accepted": true,
+                "costUsd": 0.0684215,
+                "ms": 44508
+              }
+            ],
+            "expectedText": "SALEH 7"
+          },
+          "promptVersion": "1:5073c5808297",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:06:18.212Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.7012092700786106,
+            "seamDelta": 0.7965866478605222,
+            "sharpnessRatio": 1.7262134021173408,
+            "vision": null,
+            "visionError": null,
+            "ocr": {
+              "expected": "SALEH 7",
+              "exact": true,
+              "reads": [
+                {
+                  "model": "gemini-3-flash-preview",
+                  "text": "SALEH 7",
+                  "error": null
+                },
+                {
+                  "model": "gemini-3.1-pro-preview",
+                  "text": "SALEH\n7",
+                  "error": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 10,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "jersey",
+          "version": 2,
+          "candidate": 2,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.88 < 2)",
+          "outputSize": "768x1376",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/jersey/v2-c2/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/jersey/v2-c2/composite-crop.png",
+          "costUsd": 0.0736025,
+          "ms": 147811,
+          "selected": false,
+          "inputs": {
+            "kind": "art_text",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1883,
+              "top": 640,
+              "width": 432,
+              "height": 768,
+              "ratio": "9:16"
+            },
+            "cropSha": "61e9ede2e651",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "5073c5808297",
+            "prompt": "Image 1 is an illustration crop that contains the words \"ALI 7\" inside the area outlined in red in image 2. Re-letter ONLY those words so they read exactly \"SALEH 7\", letter for letter and digit for digit, in capitals if the original is in capitals. Keep the same font, letter height, colour, outline, perspective, fabric folds, shadows and lighting. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear in your output. Do not add or remove any other text.\nFix these problems from the previous attempt: soft result (sharpness 1.67 < 2); {\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}.",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 768,
+                "height": 1376,
+                "accepted": true,
+                "costUsd": 0.0684215,
+                "ms": 85040
+              }
+            ],
+            "expectedText": "SALEH 7"
+          },
+          "promptVersion": "1:5073c5808297",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:06:18.215Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.7208147666769436,
+            "seamDelta": 4.184676145730511,
+            "sharpnessRatio": 1.8841742691465533,
+            "vision": null,
+            "visionError": null,
+            "ocr": {
+              "expected": "SALEH 7",
+              "exact": true,
+              "reads": [
+                {
+                  "model": "gemini-3-flash-preview",
+                  "text": "SALEH 7",
+                  "error": null
+                },
+                {
+                  "model": "gemini-3.1-pro-preview",
+                  "text": "SALEH\n7",
+                  "error": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 15,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "jersey",
+          "version": 3,
+          "candidate": 1,
+          "status": "failed_qa",
+          "qaReason": "soft result (sharpness 1.83 < 2)",
+          "outputSize": "768x1376",
+          "outputPath": "out/m2/m2-2026-11-14T15-56-11-112Z/jersey/v3-c1/raw.png",
+          "compositePath": "out/m2/m2-2026-11-14T15-56-11-112Z/jersey/v3-c1/composite-crop.png",
+          "costUsd": 0.075399,
+          "ms": 40300,
+          "selected": false,
+          "inputs": {
+            "kind": "art_text",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": "1K",
+            "cropBox": {
+              "left": 1883,
+              "top": 640,
+              "width": 432,
+              "height": 768,
+              "ratio": "9:16"
+            },
+            "cropSha": "61e9ede2e651",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "5bb0a085495a",
+            "prompt": "Image 1 is an illustration crop that contains the words \"ALI 7\" inside the area outlined in red in image 2. Re-letter ONLY those words so they read exactly \"SALEH 7\", letter for letter and digit for digit, in capitals if the original is in capitals. Keep the same font, letter height, colour, outline, perspective, fabric folds, shadows and lighting. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear in your output. Do not add or remove any other text.\nFix these problems from the previous attempt: soft result (sharpness 1.73 < 2); soft result (sharpness 1.88 < 2).",
+            "attempts": [
+              {
+                "size": "1K",
+                "width": 768,
+                "height": 1376,
+                "accepted": true,
+                "costUsd": 0.068397,
+                "ms": 29727
+              }
+            ],
+            "expectedText": "SALEH 7"
+          },
+          "promptVersion": "1:5bb0a085495a",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:09:46.958Z",
+          "qa": {
+            "outsideIdentical": true,
+            "outsideDiffBytes": 0,
+            "edgeSsim": 0.723936026396258,
+            "seamDelta": 4.340356142619783,
+            "sharpnessRatio": 1.8307495971829635,
+            "vision": null,
+            "visionError": null,
+            "ocr": {
+              "expected": "SALEH 7",
+              "exact": true,
+              "reads": [
+                {
+                  "model": "gemini-3-flash-preview",
+                  "text": "SALEH 7",
+                  "error": null
+                },
+                {
+                  "model": "gemini-3.1-pro-preview",
+                  "text": "SALEH\n7",
+                  "error": null
+                }
+              ]
+            }
+          }
+        },
+        {
+          "id": 16,
+          "orderId": "m2-2026-11-14T15-56-11-112Z",
+          "instanceId": "jersey",
+          "version": 3,
+          "candidate": 2,
+          "status": "error",
+          "qaReason": "{\"error\":{\"code\":429,\"message\":\"Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.\",\"status\":\"RESOURCE_EXHAUSTED\"}}",
+          "outputSize": null,
+          "outputPath": null,
+          "compositePath": null,
+          "costUsd": 0,
+          "ms": 193571,
+          "selected": false,
+          "inputs": {
+            "kind": "art_text",
+            "view": "back",
+            "ageStage": "adult",
+            "model": "gemini-3.1-flash-image",
+            "requestedSize": null,
+            "cropBox": {
+              "left": 1883,
+              "top": 640,
+              "width": 432,
+              "height": 768,
+              "ratio": "9:16"
+            },
+            "cropSha": "61e9ede2e651",
+            "sheetSha": "2cc97ec9dca6",
+            "promptSha": "5bb0a085495a",
+            "prompt": "Image 1 is an illustration crop that contains the words \"ALI 7\" inside the area outlined in red in image 2. Re-letter ONLY those words so they read exactly \"SALEH 7\", letter for letter and digit for digit, in capitals if the original is in capitals. Keep the same font, letter height, colour, outline, perspective, fabric folds, shadows and lighting. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear in your output. Do not add or remove any other text.\nFix these problems from the previous attempt: soft result (sharpness 1.73 < 2); soft result (sharpness 1.88 < 2).",
+            "attempts": [],
+            "expectedText": "SALEH 7"
+          },
+          "promptVersion": "1:5bb0a085495a",
+          "settingsVersion": 1,
+          "createdAt": "2026-11-14T16:09:46.960Z",
+          "qa": null
+        }
+      ],
+      "selectedId": null,
+      "costUsd": 0.2985065
+    }
+  ],
+  "totals": {
+    "renders": 20,
+    "costUsd": 1.5912169999999999,
+    "sheetCostUsd": 0.41992549999999995,
+    "flagged": 3
+  }
+}

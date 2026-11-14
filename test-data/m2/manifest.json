@@ -1,0 +1,10 @@
+{
+  "note": "SYNTHETIC acceptance scene for M2: a three-panel collage generated for testing, not Sard art.",
+  "scene": { "id": "collage", "name": "Football collage (synthetic)", "image": "test-data/m2/collage.png" },
+  "instances": [
+    { "id": "child-front", "kind": "character", "view": "front", "ageStage": "child", "mask": "test-data/m2/masks/child-front.png" },
+    { "id": "teen-side", "kind": "character", "view": "side", "ageStage": "teen", "mask": "test-data/m2/masks/teen-side.png" },
+    { "id": "adult-back", "kind": "character", "view": "back", "ageStage": "adult", "mask": "test-data/m2/masks/adult-back.png" },
+    { "id": "jersey", "kind": "art_text", "view": "back", "ageStage": "adult", "originalWords": "ALI 7", "newWordsTemplate": "{HERO} 7", "mask": "test-data/m2/masks/jersey.png" }
+  ]
+}
