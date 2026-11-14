@@ -1,0 +1,1 @@
+Source: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (MIT), v2.15.0. Installed unmodified except test files removed.

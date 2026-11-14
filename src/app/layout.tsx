@@ -1,23 +1,22 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata, Viewport } from "next";
+import { Fredoka, Nunito } from "next/font/google";
+import { AppShell } from "@/components/AppShell";
+import { Providers } from "./providers";
 import "./globals.css";
 
-export const metadata: Metadata = { title: "Sard Story Books · M1 lab" };
+const display = Fredoka({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-fredoka", display: "swap" });
+const body = Nunito({ subsets: ["latin"], weight: ["400", "600", "700", "800"], variable: "--font-nunito", display: "swap" });
+
+export const metadata: Metadata = { title: "Sard Story Books", description: "Personalised children's storybook production" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
-        <header className="flex items-center gap-6 border-b border-neutral-200 px-6 py-3 dark:border-neutral-800">
-          <span className="font-semibold">Sard Story Books</span>
-          <nav className="flex gap-4 text-sm">
-            <Link href="/m1" className="hover:underline">M1 experiment</Link>
-            <Link href="/studio" className="hover:underline">Image studio</Link>
-            <Link href="/settings" className="hover:underline">Settings</Link>
-          </nav>
-          <span className="ml-auto text-xs text-neutral-500">M1 lab · local only</span>
-        </header>
-        <main className="mx-auto max-w-6xl px-6 py-6">{children}</main>
+        <Providers>
+          <AppShell>{children}</AppShell>
+        </Providers>
       </body>
     </html>
   );

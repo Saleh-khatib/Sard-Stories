@@ -7,23 +7,27 @@ const usd = (v: number) => `$${v.toFixed(3)}`;
 const secs = (ms: number) => `${(ms / 1000).toFixed(1)}s`;
 
 const CSS = `
-:root{color-scheme:light dark;--bg:#fff;--fg:#1a1a1a;--mut:#666;--line:#ddd;--card:#f7f7f8;--ok:#1a7f37;--bad:#c62828}
-@media (prefers-color-scheme:dark){:root{--bg:#141416;--fg:#eee;--mut:#9a9aa0;--line:#333;--card:#1d1d21;--ok:#4cc26a;--bad:#ef6a6a}}
-body{margin:0;padding:24px;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif}
-h1{margin:0 0 4px}h2{margin:32px 0 8px}h3{margin:16px 0 8px}
-.mut{color:var(--mut)}table{border-collapse:collapse}td,th{padding:4px 10px;border-bottom:1px solid var(--line);text-align:left}
+:root{color-scheme:light dark;--bg:#fff7ed;--fg:#2a1a10;--mut:#6b5444;--line:#f1d9bf;--card:#ffffff;--soft:#fff0de;--ok:#15803d;--bad:#dc2626;--accent:#2563eb;--brand:#f97316}
+@media (prefers-color-scheme:dark){:root{--bg:#17110c;--fg:#f8ebdd;--mut:#c2a892;--line:#3b2b20;--card:#211812;--soft:#2c2018;--ok:#4ade80;--bad:#f87171;--accent:#60a5fa;--brand:#fb923c}}
+body{margin:0;padding:24px;background:var(--bg);color:var(--fg);font:15px/1.55 Nunito,system-ui,sans-serif}
+h1,h2,h3{font-family:Fredoka,Nunito,system-ui,sans-serif;font-weight:600;letter-spacing:-.01em}
+h1{margin:0 0 4px;font-size:32px}h2{margin:32px 0 8px;font-size:24px}h3{margin:16px 0 8px;font-size:18px}
+.mut{color:var(--mut)}table{border-collapse:collapse}td,th{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left}
+th{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
 .row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
-.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;width:340px}
-.card img.z{width:100%;display:block;cursor:zoom-in;border-radius:4px}
-.badge{display:inline-block;padding:1px 8px;border-radius:10px;font-weight:600;font-size:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px;width:340px;box-shadow:0 1px 2px rgb(70 35 10/.06),0 10px 28px -14px rgb(70 35 10/.22)}
+.card img.z{width:100%;display:block;cursor:zoom-in;border-radius:12px}
+.badge{display:inline-block;padding:2px 10px;border-radius:999px;font-weight:800;font-size:12px}
 .pass{background:var(--ok);color:#fff}.fail{background:var(--bad);color:#fff}
-.cmp{position:relative;cursor:ew-resize}.cmp img{width:100%;display:block}
+@media (prefers-color-scheme:dark){.pass,.fail{color:#17110c}}
+.cmp{position:relative;cursor:ew-resize;border-radius:12px;overflow:hidden}.cmp img{width:100%;display:block}
 .cmp .top{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--p,50%)) 0 0)}
-.cmp .bar{position:absolute;top:0;bottom:0;left:var(--p,50%);width:2px;background:#fff;box-shadow:0 0 3px #000}
-.cmp .tag{position:absolute;top:6px;font-size:11px;background:#000a;color:#fff;padding:1px 6px;border-radius:3px}
+.cmp .bar{position:absolute;top:0;bottom:0;left:var(--p,50%);width:3px;background:#fff;box-shadow:0 0 4px #0008}
+.cmp .tag{position:absolute;top:8px;font-size:11px;font-weight:700;background:#000a;color:#fff;padding:2px 8px;border-radius:999px}
 #lb{position:fixed;inset:0;background:#000d;overflow:auto;display:none;z-index:9;cursor:zoom-out}
 #lb img{display:block;margin:0 auto;max-width:none}
-.zbtn{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:zoom-in;font:inherit}
+.zbtn{background:none;border:0;padding:0;color:var(--accent);text-decoration:underline;cursor:zoom-in;font:inherit;font-weight:600}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .bad{color:var(--bad)}.ok{color:var(--ok)}
 `;
 
@@ -91,7 +95,7 @@ function sceneSection(s: SceneReport, models: string[], base: string): string {
 
 export function renderReport(r: RunSummary, base: string): string {
   const fc = r.sheet.featureCard;
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M1 report ${esc(r.runId)}</title><style>${CSS}</style></head><body>
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>M1 report ${esc(r.runId)}</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet"><style>${CSS}</style></head><body>
 <h1>M1 proof of concept</h1>
 <div class="mut">Run ${esc(r.runId)} · ${esc(r.createdAt)} · settings v${r.settingsVersion} · child ${esc(r.child.name)} (${esc(r.child.gender)}) · total cost ${usd(r.totalCostUsd)}</div>
 <h2>Totals per model</h2>${totalsTable(r.totals)}

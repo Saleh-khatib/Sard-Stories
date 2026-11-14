@@ -1,8 +1,11 @@
 "use client";
 
+import { AlertTriangle, ArrowRight, CheckCircle2, Loader2, Minus, Play, Plus, XCircle } from "lucide-react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+import { Badge, Button, Card, Check, PageHeader, cn, rise, stagger } from "@/components/ui";
 
 const SCENES = ["front", "side", "back"] as const;
 type Inputs = {
@@ -17,7 +20,15 @@ type Settings = {
 };
 type Run = { runId: string; state: string; done: number; total: number; startedAt: string; current: string };
 
-const Mark = ({ ok }: { ok: boolean }) => <span className={ok ? "text-green-600" : "text-red-600"}>{ok ? "✓" : "✗"}</span>;
+function Row({ ok, label, detail }: { ok: boolean; label: string; detail?: string }) {
+  return (
+    <li className="flex items-center gap-3 rounded-2xl bg-soft px-4 py-3">
+      {ok ? <CheckCircle2 className="size-5 shrink-0 text-ok" aria-hidden /> : <XCircle className="size-5 shrink-0 text-bad" aria-hidden />}
+      <span className="font-semibold">{label}</span>
+      <span className="ml-auto text-sm text-mute">{detail}</span>
+    </li>
+  );
+}
 
 export default function M1Page() {
   const router = useRouter();
@@ -42,7 +53,6 @@ export default function M1Page() {
   }, []);
 
   const imageModels = useMemo(() => (settings ? Object.keys(settings.models.prices).filter((m) => m.includes("image")) : []), [settings]);
-
   const estimate = useMemo(() => {
     if (!settings) return 0;
     const per = models.reduce((sum, m) => {
@@ -63,78 +73,88 @@ export default function M1Page() {
     else { setError(body.error); setStarting(false); }
   };
 
-  if (!inputs || !settings) return <p className="text-sm text-neutral-500">Loading…</p>;
+  if (!inputs || !settings) {
+    return <div className="flex items-center gap-2 text-mute"><Loader2 className="size-4 animate-spin" aria-hidden /> Loading…</div>;
+  }
   const selectedReady = scenes.every((s) => inputs.scenes[s]?.scene && inputs.scenes[s]?.mask && inputs.scenes[s]?.sizesMatch) && inputs.child.photo && inputs.child.info;
+  const edits = scenes.length * models.length * candidates;
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-xl font-semibold">M1 proof of concept</h1>
-        <p className="text-sm text-neutral-500">Replace the hero on 3 scenes, compare models, and check that nothing outside the mask changes.</p>
-      </div>
-
-      <section className="space-y-2">
-        <h2 className="font-medium">1. Inputs <span className="text-xs font-normal text-neutral-500">test-data/ (git-ignored)</span></h2>
-        <table className="text-sm">
-          <thead><tr className="text-left text-xs text-neutral-500"><th className="pr-6">Scene</th><th className="pr-6">Image</th><th className="pr-6">Mask</th><th>Sizes</th></tr></thead>
-          <tbody>
+    <>
+      <PageHeader title="Proof of concept" subtitle="Swap the hero for a real child on three scenes, compare models, and check that nothing outside the mask changes." />
+      <motion.div variants={stagger} initial="hidden" animate="show" className="grid gap-5 lg:grid-cols-2">
+        <Card variants={rise}>
+          <h2 className="mb-1 text-xl font-semibold">1 · Your files</h2>
+          <p className="mb-4 text-sm text-mute">Read from the <code className="rounded bg-soft px-1">test-data</code> folder on this computer.</p>
+          <ul className="space-y-2">
             {SCENES.map((s) => {
               const r = inputs.scenes[s];
-              return r && (
-                <tr key={s}>
-                  <td className="pr-6">{s}</td>
-                  <td className="pr-6"><Mark ok={r.scene} /> {r.sceneSize?.join("×")}</td>
-                  <td className="pr-6"><Mark ok={r.mask} /> {r.maskSize?.join("×")}</td>
-                  <td>{r.scene && r.mask ? <><Mark ok={r.sizesMatch} /> {r.sizesMatch ? "match" : "mask and scene differ"}</> : "—"}</td>
-                </tr>
-              );
+              const ok = !!r && r.scene && r.mask && r.sizesMatch;
+              return <Row key={s} ok={ok} label={`${s[0]?.toUpperCase()}${s.slice(1)} scene + mask`} detail={r?.sceneSize ? `${r.sceneSize.join("×")}${r.sizesMatch ? "" : " · mask differs"}` : "missing"} />;
             })}
-          </tbody>
-        </table>
-        <p className="text-sm"><Mark ok={inputs.child.photo} /> child/photo.jpg · <Mark ok={inputs.child.info} /> child/info.json {inputs.child.name && <span className="text-neutral-500">({inputs.child.name}, {inputs.child.gender})</span>}</p>
-        {inputs.problems.length > 0 && (
-          <ul className="list-disc pl-5 text-xs text-amber-700 dark:text-amber-400">{inputs.problems.map((p) => <li key={p}>{p}</li>)}</ul>
-        )}
-      </section>
+            <Row ok={inputs.child.photo && inputs.child.info} label="Child photo + info" detail={inputs.child.name ? `${inputs.child.name}, ${inputs.child.gender}` : "missing"} />
+          </ul>
+          {inputs.problems.length > 0 && (
+            <div className="mt-4 flex gap-3 rounded-2xl border border-warn/40 bg-warn/10 p-4 text-sm">
+              <AlertTriangle className="mt-0.5 size-5 shrink-0 text-warn" aria-hidden />
+              <ul className="space-y-1">{inputs.problems.map((p) => <li key={p}>{p}</li>)}</ul>
+            </div>
+          )}
+        </Card>
 
-      <section className="space-y-3">
-        <h2 className="font-medium">2. Experiment</h2>
-        <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm">
-          <div><div className="mb-1 text-xs text-neutral-500">Scenes</div>{SCENES.map((s) => (
-            <label key={s} className="mr-3"><input type="checkbox" checked={scenes.includes(s)} onChange={() => toggle(scenes, setScenes, s)} /> {s}</label>
-          ))}</div>
-          <div><div className="mb-1 text-xs text-neutral-500">Models to compare</div>{imageModels.map((m) => (
-            <label key={m} className="mr-3"><input type="checkbox" checked={models.includes(m)} onChange={() => toggle(models, setModels, m)} /> {m}</label>
-          ))}</div>
-          <div><div className="mb-1 text-xs text-neutral-500">Candidates per instance</div>
-            <input type="number" min={1} max={4} className="w-20" value={candidates} onChange={(e) => setCandidates(Number(e.target.value))} /></div>
-        </div>
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {scenes.length} scene(s) × {models.length} model(s) × {candidates} candidate(s) = <b>{scenes.length * models.length * candidates}</b> edits ·
-          rough cost <b>${estimate.toFixed(2)}</b> <span className="text-xs">(estimate from the price table, plus sheet and judge calls)</span>
-        </p>
-        <button onClick={start} disabled={!selectedReady || !scenes.length || !models.length || starting} className="rounded-md bg-neutral-900 px-4 py-2 text-sm text-white disabled:opacity-40 dark:bg-neutral-100 dark:text-neutral-900">
-          {starting ? "Starting…" : "Run experiment"}
-        </button>
-        {!selectedReady && <span className="ml-3 text-xs text-neutral-500">Add the missing inputs above first.</span>}
-        {error.length > 0 && <ul className="list-disc pl-5 text-sm text-red-600">{error.map((e) => <li key={e}>{e}</li>)}</ul>}
-      </section>
+        <Card variants={rise}>
+          <h2 className="mb-4 text-xl font-semibold">2 · Run the experiment</h2>
+          <div className="space-y-5">
+            <fieldset>
+              <legend className="mb-2 text-sm font-bold text-mute">Scenes</legend>
+              <div className="flex flex-wrap gap-2">{SCENES.map((s) => <Check key={s} label={s} checked={scenes.includes(s)} onChange={() => toggle(scenes, setScenes, s)} />)}</div>
+            </fieldset>
+            <fieldset>
+              <legend className="mb-2 text-sm font-bold text-mute">Models to compare</legend>
+              <div className="flex flex-wrap gap-2">{imageModels.map((m) => <Check key={m} label={m} checked={models.includes(m)} onChange={() => toggle(models, setModels, m)} />)}</div>
+            </fieldset>
+            <div>
+              <div className="mb-2 text-sm font-bold text-mute">Versions per scene</div>
+              <div className="inline-flex items-center gap-1 rounded-full bg-soft p-1">
+                <Button variant="ghost" size="sm" aria-label="Fewer versions" onClick={() => setCandidates((c) => Math.max(1, c - 1))} icon={Minus} className="size-9 !px-0" />
+                <span className="w-8 text-center text-lg font-bold" aria-live="polite">{candidates}</span>
+                <Button variant="ghost" size="sm" aria-label="More versions" onClick={() => setCandidates((c) => Math.min(4, c + 1))} icon={Plus} className="size-9 !px-0" />
+              </div>
+            </div>
+            <div className="rounded-2xl bg-soft p-4">
+              <div className="text-sm text-mute">{scenes.length} scene(s) × {models.length} model(s) × {candidates} version(s)</div>
+              <div className="mt-1 flex items-baseline gap-2">
+                <span className="font-display text-3xl font-semibold">{edits} edits</span>
+                <span className="text-mute">about ${estimate.toFixed(2)}</span>
+              </div>
+              <p className="mt-1 text-xs text-mute">Estimate from your price table; the character sheet and judge calls add a little.</p>
+            </div>
+            <Button size="lg" icon={Play} loading={starting} onClick={start} disabled={!selectedReady || !scenes.length || !models.length} className="w-full">Run experiment</Button>
+            {!selectedReady && <p className="text-sm text-mute">Add the missing files on the left first.</p>}
+            {error.length > 0 && <ul className="list-disc pl-5 text-sm text-bad">{error.map((e) => <li key={e}>{e}</li>)}</ul>}
+          </div>
+        </Card>
 
-      <section className="space-y-2">
-        <h2 className="font-medium">3. Previous runs</h2>
-        {runs.length === 0 ? <p className="text-sm text-neutral-500">No runs yet.</p> : (
-          <table className="text-sm">
-            <tbody>
+        <Card variants={rise} className="lg:col-span-2">
+          <h2 className="mb-4 text-xl font-semibold">3 · Previous runs</h2>
+          {runs.length === 0 ? <p className="text-mute">No runs yet. Your first one will show up here.</p> : (
+            <ul className="grid gap-2 md:grid-cols-2">
               {runs.map((r) => (
-                <tr key={r.runId}>
-                  <td className="pr-6"><Link className="underline" href={`/m1/runs/${r.runId}`}>{r.runId}</Link></td>
-                  <td className="pr-6">{r.state}</td><td>{r.done}/{r.total}</td>
-                </tr>
+                <li key={r.runId}>
+                  <Link href={`/m1/runs/${r.runId}`} className={cn("flex items-center gap-3 rounded-2xl bg-soft px-4 py-3 transition-colors hover:bg-brand/15")}>
+                    <span className="truncate font-semibold">{r.runId}</span>
+                    <span className="ml-auto flex items-center gap-2">
+                      <Badge tone={r.state === "done" ? "ok" : r.state === "error" ? "bad" : "info"} icon={r.state === "done" ? CheckCircle2 : r.state === "error" ? XCircle : Loader2}>{r.state}</Badge>
+                      <span className="text-sm text-mute">{r.done}/{r.total}</span>
+                      <ArrowRight className="size-4 text-mute" aria-hidden />
+                    </span>
+                  </Link>
+                </li>
               ))}
-            </tbody>
-          </table>
-        )}
-      </section>
-    </div>
+            </ul>
+          )}
+        </Card>
+      </motion.div>
+    </>
   );
 }

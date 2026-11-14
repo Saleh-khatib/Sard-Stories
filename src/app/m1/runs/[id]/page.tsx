@@ -1,7 +1,9 @@
 "use client";
 
+import { ArrowLeft, CheckCircle2, ExternalLink, Loader2, XCircle } from "lucide-react";
 import Link from "next/link";
 import { use, useEffect, useState } from "react";
+import { Badge, Card, PageHeader, ProgressBar } from "@/components/ui";
 
 type Status = { runId: string; state: "running" | "done" | "error"; total: number; done: number; current: string; error: string | null };
 
@@ -24,31 +26,35 @@ export default function RunPage({ params }: { params: Promise<{ id: string }> })
     return () => { stop = true; };
   }, [id]);
 
-  if (missing) return <p className="text-sm">Run not found. <Link className="underline" href="/m1">Back</Link></p>;
-  if (!status) return <p className="text-sm text-neutral-500">Loading…</p>;
-  const pct = status.total ? Math.round((status.done / status.total) * 100) : 0;
+  const back = <Link href="/m1" className="mb-3 inline-flex items-center gap-1 text-sm font-semibold text-mute hover:text-ink"><ArrowLeft className="size-4" aria-hidden /> Experiment</Link>;
+  if (missing) return <>{back}<p>Run not found.</p></>;
+  if (!status) return <div className="flex items-center gap-2 text-mute"><Loader2 className="size-4 animate-spin" aria-hidden /> Loading…</div>;
+  const pct = status.total ? (status.done / status.total) * 100 : 0;
   const reportUrl = `/api/files/out/m1/${id}/report.html`;
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-baseline gap-3">
-        <Link className="text-sm underline" href="/m1">← M1</Link>
-        <h1 className="text-xl font-semibold">Run {id}</h1>
-        <span className="text-sm text-neutral-500">{status.state}</span>
-      </div>
+    <>
+      {back}
+      <PageHeader
+        title={`Run ${id.slice(0, 19).replace("T", " ")}`}
+        actions={<Badge tone={status.state === "done" ? "ok" : status.state === "error" ? "bad" : "info"} icon={status.state === "done" ? CheckCircle2 : status.state === "error" ? XCircle : Loader2}>{status.state}</Badge>}
+      />
       {status.state === "running" && (
-        <div className="space-y-1">
-          <div className="h-2 w-full overflow-hidden rounded bg-neutral-200 dark:bg-neutral-800"><div className="h-full bg-blue-600 transition-all" style={{ width: `${pct}%` }} /></div>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">{status.done}/{status.total} candidates · {status.current}</p>
-        </div>
+        <Card className="mb-5 space-y-3">
+          <ProgressBar value={pct} />
+          <p className="text-sm text-mute">{status.done} of {status.total} versions · {status.current}</p>
+        </Card>
       )}
-      {status.state === "error" && <pre className="whitespace-pre-wrap rounded-md border border-red-300 bg-red-50 p-3 text-sm text-red-800 dark:bg-red-950 dark:text-red-200">{status.error}</pre>}
+      {status.state === "error" && <Card className="mb-5 border-bad/40 bg-bad/10"><pre className="whitespace-pre-wrap text-sm text-bad">{status.error}</pre></Card>}
       {status.state === "done" && (
-        <>
-          <a className="text-sm underline" href={reportUrl} target="_blank" rel="noreferrer">Open report in a new tab</a>
-          <iframe src={reportUrl} title="M1 report" className="h-[85vh] w-full rounded-lg border border-neutral-200 bg-white dark:border-neutral-800" />
-        </>
+        <Card className="overflow-hidden !p-0">
+          <div className="flex items-center justify-between border-b border-line px-5 py-3">
+            <span className="font-semibold">Report</span>
+            <a className="inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline" href={reportUrl} target="_blank" rel="noreferrer">Open in a new tab <ExternalLink className="size-4" aria-hidden /></a>
+          </div>
+          <iframe src={reportUrl} title="M1 report" className="h-[80vh] w-full bg-white" />
+        </Card>
       )}
-    </div>
+    </>
   );
 }

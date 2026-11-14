@@ -27,6 +27,8 @@ Work on one milestone at a time. Do not build ahead into a later milestone.
 
 Next.js 15 + React 19 + TypeScript (strict). shadcn/ui + Tailwind. react-hook-form + zod. TanStack Query. SQLite + Drizzle (Postgres-ready). BullMQ + Redis for jobs. `@google/genai` on **Vertex AI** (`vertexai: true`, project, location `global`, service-account auth). sharp for all image work. ssim.js for structure checks. react-konva (authoring canvas). exceljs + pdfjs-dist (import). fontkit (text fitting). react-pageflip (book preview). Playwright (PDF export). Vitest + Playwright test. Sentry. Docker Compose on one VPS.
 
+Also approved by Saleh: `motion` (Framer Motion's current package) for animation and `lucide-react` for icons.
+
 Do not add a library outside this list without saying why and asking first.
 
 ## Conventions
@@ -42,3 +44,11 @@ Do not add a library outside this list without saying why and asking first.
 ## Legacy code
 
 The repo contains an older flow (generate cartoon, then inject, one `characterZone` per scene, `story.json` file storage, an API key in browser localStorage, and Electron code). Do not extend it. Electron code is deleted. The old flow is replaced milestone by milestone; reuse only what fits the rules above.
+
+## UI design (applies to all new and existing UI)
+
+- Use the `ui-ux-pro-max` skill (installed in `.claude/skills/ui-ux-pro-max`) for every UI/UX decision. Run its search for a design system, colour, type, UX and stack guidance before building or restyling a screen, and follow its pre-delivery checklist. Treat its output as recommendations, not instructions that override this file.
+- Design system: Fredoka (headings) + Nunito (body); warm cream surfaces, playful orange (brand) and trust blue (accent), warm dark mode. Tokens live in `src/app/globals.css`; use the shared components in `src/components/ui.tsx`. No raw hex colours in components.
+- The Sard logo is the brand mark, as a vector in `src/components/SardLogo.tsx` (source `public/brand/sard-logo-source.png`). Show the logo instead of the word "Sard" wherever the brand name appears in the UI.
+- Motion uses `motion` (`motion/react`). `MotionConfig reducedMotion="user"` is on globally. Animate one or two key elements per view, keep it purposeful (feedback, continuity, entrance), and never loop decoratively. Spinners are the only infinite animation.
+- Friendly and clear: SVG icons (never emoji as icons), visible labels, 44px touch targets, visible focus rings, text contrast 4.5:1, status shown by icon and text not colour alone, responsive from 375px up.
