@@ -22,6 +22,7 @@ export const ModelsSchema = z.object({
   visionJudge: z.string().default("gemini-3-flash-preview"),
   featureCard: z.string().default("gemini-3-flash-preview"),
   compare: z.array(z.string()).default(["gemini-3-pro-image", "gemini-3.1-flash-image"]),
+  ocr: z.array(z.string()).min(1).default(["gemini-3-flash-preview", "gemini-3.1-pro-preview"]),
   prices: z
     .record(z.string(), PriceSchema)
     .default({
@@ -120,12 +121,35 @@ export const PromptsSchema = z.object({
     .default(
       "Upscale and enhance this image to the highest possible resolution and sharpness. Keep the composition, every object, every face, all colours, all text and the art style exactly as they are: do not add, remove, move or restyle anything. Reconstruct fine detail (line work, textures, hair, fabric, foliage) cleanly and crisply, with no blur, no noise, no compression artifacts, no watermark and no border.",
     ),
+  ageSheet: z
+    .string()
+    .default(
+      "Image 1 is the approved character sheet of a child, drawn in the story's art style. Draw the SAME person as {stage_desc}. Keep the hair colour ({hair_color}), a hair style that suits the age, the skin tone ({skin_tone}), the eye colour ({eyes}) and the recognisable facial features ({features}). Same art style and same layout (front, side and back views), plain light background, no text.",
+    ),
+  ageStageDesc: z.object({ child: z.string().default("a young child of about 6 years old"), teen: z.string().default("a teenager of about 15 years old"), adult: z.string().default("an adult of about 30 years old") }).default({ child: "a young child of about 6 years old", teen: "a teenager of about 15 years old", adult: "an adult of about 30 years old" }),
+  ageStageLine: z.object({ child: z.string().default("The hero is a young child."), teen: z.string().default("The hero is a teenager, so give the head the proportions of a teenager."), adult: z.string().default("The hero is a grown adult, so give the head and neck adult proportions.") }).default({ child: "The hero is a young child.", teen: "The hero is a teenager, so give the head the proportions of a teenager.", adult: "The hero is a grown adult, so give the head and neck adult proportions." }),
+  artText: z
+    .string()
+    .default(
+      'Image 1 is an illustration crop that contains the words "{old_words}" inside the area outlined in red in image 2. Re-letter ONLY those words so they read exactly "{new_words}", letter for letter and digit for digit, in capitals if the original is in capitals. Keep the same font, letter height, colour, outline, perspective, fabric folds, shadows and lighting. Do not change anything outside the red outline. Image 2 is only a guide: the red line must NOT appear in your output. Do not add or remove any other text.',
+    ),
+  ocr: z
+    .string()
+    .default(
+      'Transcribe the text written in this image exactly as it appears, letter for letter and digit for digit, keeping capitalisation. Do not correct spelling and do not guess missing letters. Return JSON {"text": "..."}. If there is no readable text, return an empty string.',
+    ),
+  retryHint: z.string().default("Fix these problems from the previous attempt: {problems}."),
   improvePrompt: z
     .string()
     .default(
       "Rewrite the user's idea as one detailed, specific prompt for an image generation model. Keep every requirement the user gave, add concrete visual detail (subject, setting, lighting, composition, style), and do not add text, logos or watermarks. Return JSON with a single field: prompt.",
     ),
   styleNotes: z.string().default("soft children's picture-book illustration, clean outlines, warm colours"),
+});
+
+export const QueueSchema = z.object({
+  name: z.string().default("render"),
+  sceneConcurrency: z.number().int().min(1).max(8).default(2),
 });
 
 export const M1SettingsSchema = z.object({
@@ -137,6 +161,7 @@ export const M1SettingsSchema = z.object({
   masking: MaskingSchema.default(() => MaskingSchema.parse({})),
   qa: QaSchema.default(() => QaSchema.parse({})),
   prompts: PromptsSchema.default(() => PromptsSchema.parse({})),
+  queue: QueueSchema.default(() => QueueSchema.parse({})),
 });
 
 export type M1Settings = z.infer<typeof M1SettingsSchema>;
@@ -144,5 +169,5 @@ export type GenerationSettings = z.infer<typeof GenerationSchema>;
 export type MaskingSettings = z.infer<typeof MaskingSchema>;
 export type QaSettings = z.infer<typeof QaSchema>;
 
-export const SETTINGS_TABS = ["connection", "models", "generation", "enhance", "masking", "qa", "prompts"] as const;
+export const SETTINGS_TABS = ["connection", "models", "generation", "enhance", "masking", "qa", "queue", "prompts"] as const;
 export type SettingsTab = (typeof SETTINGS_TABS)[number];

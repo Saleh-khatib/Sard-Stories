@@ -10,3 +10,4 @@ next-env.d.ts
 *.sqlite
 *.sqlite-journal
 .DS_Store
+storage/orders/

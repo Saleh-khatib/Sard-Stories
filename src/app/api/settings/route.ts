@@ -11,7 +11,7 @@ export async function GET() {
 
 export async function PUT(req: Request) {
   try {
-    return NextResponse.json({ settings: await saveSettings(await req.json()) });
+    return NextResponse.json({ settings: await saveSettings(await req.json(), undefined, "saved from Settings") });
   } catch (e) {
     if (e instanceof ZodError) {
       return NextResponse.json({ error: e.issues.map((i) => `${i.path.join(".")}: ${i.message}`) }, { status: 400 });

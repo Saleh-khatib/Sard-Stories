@@ -7,9 +7,9 @@ import { Field } from "@/components/SettingsEditor";
 import { Badge, Button, Card, PageHeader, Segmented } from "@/components/ui";
 
 type Settings = Record<string, unknown> & { models: { prices: Record<string, unknown> }; version: number };
-const TABS = ["connection", "models", "generation", "enhance", "masking", "qa", "prompts"] as const;
+const TABS = ["connection", "models", "generation", "enhance", "masking", "qa", "queue", "prompts"] as const;
 type Tab = (typeof TABS)[number];
-const LABEL: Record<Tab, string> = { connection: "Connection", models: "Models", generation: "Generation", enhance: "Enhance", masking: "Masking", qa: "Quality checks", prompts: "Prompts" };
+const LABEL: Record<Tab, string> = { connection: "Connection", models: "Models", generation: "Generation", enhance: "Enhance", masking: "Masking", qa: "Quality checks", queue: "Queue", prompts: "Prompts" };
 type CheckRow = { model: string; kind: string; ok: boolean; detail: string; ms: number; costUsd: number };
 
 export default function SettingsPage() {
@@ -52,7 +52,7 @@ export default function SettingsPage() {
 
   return (
     <>
-      <PageHeader title="Settings" subtitle={`Every model, prompt, threshold and price lives here. Version ${settings.version}, saved to settings.m1.json.`} />
+      <PageHeader title="Settings" subtitle={`Every model, prompt, threshold and price lives here. Version ${settings.version}, saved in the database.`} />
       <Segmented id="settings-tabs" value={tab} onChange={(t) => setTab(t)} options={TABS.map((t) => ({ value: t, label: LABEL[t] }))} className="mb-5 max-w-full" />
 
       <AnimatePresence mode="wait">
