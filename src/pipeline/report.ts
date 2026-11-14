@@ -66,7 +66,7 @@ function candidateCard(c: CandidateReport, s: SceneReport, base: string): string
 <table>
 <tr><td>Outside mask identical</td><td class="${q.outsideIdentical ? "ok" : "bad"}">${q.outsideIdentical ? "yes" : `NO (${q.outsideDiffBytes} bytes)`}</td></tr>
 <tr><td>Edge SSIM</td><td>${num(q.edgeSsim)}</td></tr>
-<tr><td>Seam Δ (orig ${num(q.seamDeltaBaseline, 1)})</td><td>${num(q.seamDelta, 1)}</td></tr>
+<tr><td>Seam Δ (original ${num(q.seamDeltaBaseline, 1)}, judged on the excess)</td><td>${num(q.seamDelta, 1)}</td></tr>
 <tr><td>Sharpness (orig ${num(q.sharpnessBaseline)})</td><td>${num(q.sharpnessRatio)}</td></tr>
 ${v ? `<tr><td>Likeness / features / style</td><td>${v.likeness} / ${v.featureMatch} / ${v.styleMatch}</td></tr><tr><td>Vision overall</td><td>${v.overall}${v.extraFaces ? " · extra faces" : ""}</td></tr>` : `<tr><td>Vision</td><td class="bad">${esc(q.visionError ?? "n/a")}</td></tr>`}
 <tr><td>Output</td><td>${c.outputSize?.join("×")} (${esc(c.requestedSize ?? "")}), crop ${s.box.width}×${s.box.height}</td></tr>

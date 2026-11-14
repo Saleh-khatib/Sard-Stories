@@ -17,6 +17,7 @@ describe("verdict", () => {
     const bad = judgeVerdict({ ...goodQa, outsideIdentical: false, edgeSsim: 0.1, seamDelta: 99, sharpnessRatio: 0.1, vision: null, visionError: "x" }, qa);
     expect(bad.pass).toBe(false);
     expect(bad.reasons.length).toBe(5);
+    expect(judgeVerdict({ ...goodQa, seamDelta: 60, seamDeltaBaseline: 65 }, qa).pass).toBe(true);
   });
 });
 
