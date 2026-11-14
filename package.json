@@ -6,7 +6,11 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run --passWithNoTests",
-    "check-vertex": "tsx scripts/check-vertex.ts"
+    "check-vertex": "tsx scripts/check-vertex.ts",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "m1": "tsx scripts/m1-run.ts"
   },
   "dependencies": {
     "@google/genai": "^3.1.0",

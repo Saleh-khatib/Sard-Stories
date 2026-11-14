@@ -23,13 +23,14 @@ h1{margin:0 0 4px}h2{margin:32px 0 8px}h3{margin:16px 0 8px}
 .cmp .tag{position:absolute;top:6px;font-size:11px;background:#000a;color:#fff;padding:1px 6px;border-radius:3px}
 #lb{position:fixed;inset:0;background:#000d;overflow:auto;display:none;z-index:9;cursor:zoom-out}
 #lb img{display:block;margin:0 auto;max-width:none}
+.zbtn{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:zoom-in;font:inherit}
 .bad{color:var(--bad)}.ok{color:var(--ok)}
 `;
 
 const JS = `
 const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
 document.addEventListener('click',e=>{const t=e.target;
- if(t.matches('img.z')){lbi.src=t.dataset.full||t.src;lb.style.display='block';lb.scrollTop=0}
+ if(t.matches('img.z,.zbtn')){lbi.src=t.dataset.full||t.src;lb.style.display='block';lb.scrollTop=0}
  else if(lb.contains(t)){lb.style.display='none'}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.style.display='none'});
 for(const c of document.querySelectorAll('.cmp')){
@@ -60,8 +61,8 @@ function candidateCard(c: CandidateReport, s: SceneReport, base: string): string
   const q = c.qa!;
   const v = q.vision;
   return `<div class="card">${head}
-<div class="cmp"><img src="${base}${esc(s.files.crop)}"><div class="top"><img class="z" src="${base}${esc(c.files.compositeCrop)}" data-full="${base}${esc(c.files.composite)}"></div><div class="bar"></div><span class="tag" style="left:6px">original</span><span class="tag" style="right:6px">edited</span></div>
-<div class="mut">drag to compare · click the edited side for the full page</div>
+<div class="cmp"><img src="${base}${esc(c.files.compositeCrop)}"><div class="top"><img src="${base}${esc(s.files.crop)}"></div><div class="bar"></div><span class="tag" style="left:6px">original</span><span class="tag" style="right:6px">edited</span></div>
+<div class="mut">drag to compare · <button class="zbtn" data-full="${base}${esc(c.files.compositeCrop)}">zoom crop</button> · <button class="zbtn" data-full="${base}${esc(c.files.composite)}">zoom full page</button> · <button class="zbtn" data-full="${base}${esc(c.files.raw ?? "")}">raw model output</button></div>
 <table>
 <tr><td>Outside mask identical</td><td class="${q.outsideIdentical ? "ok" : "bad"}">${q.outsideIdentical ? "yes" : `NO (${q.outsideDiffBytes} bytes)`}</td></tr>
 <tr><td>Edge SSIM</td><td>${num(q.edgeSsim)}</td></tr>
